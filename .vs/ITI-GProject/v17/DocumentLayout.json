@@ -1,0 +1,278 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\API Projects\\ITI-GProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\helpinghands\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\helpinghands\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\gcontext\\appgconetxt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\gcontext\\appgconetxt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\migrations\\20250720060036_testingone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\migrations\\20250720060036_testingone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\studentcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\studentcourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\studentquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\studentquiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\studentassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\studentassignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\data\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\api projects\\iti-gproject\\iti-gproject\\iti-gproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\iti-gproject.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserType.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\HelpingHands\\UserType.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\HelpingHands\\UserType.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\HelpingHands\\UserType.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\HelpingHands\\UserType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T09:46:20.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T09:44:39.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20250720060036_testingone.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Migrations\\20250720060036_testingone.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Migrations\\20250720060036_testingone.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Migrations\\20250720060036_testingone.cs",
+              "RelativeToolTip": "ITI-GProject\\Migrations\\20250720060036_testingone.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T06:00:38.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\appsettings.json",
+              "RelativeDocumentMoniker": "ITI-GProject\\appsettings.json",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\appsettings.json",
+              "RelativeToolTip": "ITI-GProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-20T05:57:08.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Student.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\Student.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Student.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T04:47:02.065Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StudentQuiz.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\StudentQuiz.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\StudentQuiz.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\StudentQuiz.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\StudentQuiz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T05:24:35.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StudentCourse.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\StudentCourse.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\StudentCourse.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\StudentCourse.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\StudentCourse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T04:52:45.144Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppGConetxt.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\GContext\\AppGConetxt.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\GContext\\AppGConetxt.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\GContext\\AppGConetxt.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\GContext\\AppGConetxt.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T04:46:51.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Assignment.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Assignment.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\Assignment.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Assignment.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\Assignment.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAQwA8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T04:47:01.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "StudentAssignment.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\StudentAssignment.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\StudentAssignment.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\StudentAssignment.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\StudentAssignment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T05:29:01.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Lesson.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Lesson.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\Lesson.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Lesson.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\Lesson.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T04:49:43.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Course.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\Course.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Course.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\Course.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAswB8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T04:59:07.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Quiz.cs",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Quiz.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\Quiz.cs",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\Data\\Models\\Quiz.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\Quiz.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA4wCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-20T05:28:08.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ITI-GProject",
+              "DocumentMoniker": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\ITI-GProject.csproj",
+              "RelativeDocumentMoniker": "ITI-GProject\\ITI-GProject.csproj",
+              "ToolTip": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\ITI-GProject.csproj",
+              "RelativeToolTip": "ITI-GProject\\ITI-GProject.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-20T04:47:00.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
