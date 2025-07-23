@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\",
+  "WorkspaceRootPath": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|c:\\users\\mahmoud\\desktop\\elbasit\\elbasititigrad\\giti_popo\\iti-gproject\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|c:\\users\\mahmoud\\desktop\\elbasit\\elbasititigrad\\giti_popo\\giti_popo\\iti-gproject\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|c:\\users\\mahmoud\\desktop\\elbasit\\elbasititigrad\\giti_popo\\iti-gproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|c:\\users\\mahmoud\\desktop\\elbasit\\elbasititigrad\\giti_popo\\giti_popo\\iti-gproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -33,11 +33,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": ".gitignore",
-              "DocumentMoniker": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\ITI-GProject\\.gitignore",
+              "DocumentMoniker": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\.gitignore",
               "RelativeDocumentMoniker": "ITI-GProject\\.gitignore",
-              "ToolTip": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\ITI-GProject\\.gitignore",
+              "ToolTip": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\.gitignore",
               "RelativeToolTip": "ITI-GProject\\.gitignore",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAQwE8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAQwDQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-07-23T15:51:21.895Z",
               "EditorCaption": ""
@@ -46,14 +46,13 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\ITI-GProject\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Program.cs",
               "RelativeDocumentMoniker": "ITI-GProject\\Program.cs",
-              "ToolTip": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\ITI-GProject\\Program.cs",
+              "ToolTip": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Program.cs",
               "RelativeToolTip": "ITI-GProject\\Program.cs",
               "ViewState": "AgIAADoAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-23T15:49:29.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T15:49:29.577Z"
             },
             {
               "$type": "Document",
