@@ -1,0 +1,9 @@
+﻿global using ITI_GProject.Data.Enums;
+global using System.ComponentModel.DataAnnotations;
+global using ITI_GProject.Data.GContext;
+global using Microsoft.EntityFrameworkCore;
+global using ITI_GProject.Data.Models;
+global using Microsoft.AspNetCore.Mvc;
+global using ITI_GProject.DTOs;
+global using Microsoft.AspNetCore.Identity;
+global using System.ComponentModel.DataAnnotations.Schema;

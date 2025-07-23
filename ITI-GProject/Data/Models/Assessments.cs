@@ -1,9 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
 namespace ITI_GProject.Data.Models
 {
-    public class Quiz
+    public class Assessments
     {
         [Key]
         public int Id { get; set; }
@@ -27,7 +25,9 @@ namespace ITI_GProject.Data.Models
 
 
         //many to many relation between student and quiz 
-        public virtual ICollection<StudentQuiz> StudentQuizzes { get; set; } = new HashSet<StudentQuiz>();
+        public virtual ICollection<StudentAttempts> StudentAttempts { get; set; } = new HashSet<StudentAttempts>();
+        //one to many relation Between Quiz and Question
+        public virtual ICollection<Question>? Questions { get; set; } = new HashSet<Question>();
 
 
 

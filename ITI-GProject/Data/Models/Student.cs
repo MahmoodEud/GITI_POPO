@@ -46,12 +46,12 @@ namespace ITI_GProject.Data.Models
 
         //many to many relation between course and student
         public virtual ICollection<StudentCourse> StudentCourses { get; set; } = new HashSet<StudentCourse>();
+        public virtual ICollection<StudentAttempts> StudentAttempts { get; set; } = new HashSet<StudentAttempts>();
+
 
         //many to many relation between student and quiz 
-        public virtual ICollection<StudentQuiz> StudentQuizzes { get; set; } = new HashSet<StudentQuiz>();
+        public virtual ICollection<StudentAttempts> StudentQuizzes { get; set; } = new HashSet<StudentAttempts>();
 
-
-        public virtual ICollection<StudentAssignment> StudentAssignments { get; set; } = new HashSet<StudentAssignment>();
 
 
     }

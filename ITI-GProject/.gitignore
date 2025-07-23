@@ -1,0 +1,79 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code settings (if you're using it)
+.vscode/
+
+# Visual Studio settings
+.vs/
+
+# Rider settings (if you're using JetBrains Rider)
+.idea/
+
+# ASP.NET Core secrets
+**/secrets.json
+
+# Configuration files
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+
+# Logs
+*.log
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Entity Framework
+*.dbmdl
+*.jfm
+
+# IIS/Hosting
+*.vspscc
+*.vssscc
+*.Publish.xml
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Backup & temp files
+*.bak
+*.tmp
+~$*
+
+# node/npm if used (e.g., in SPA projects)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# IDE crash logs
+*.stackdump
+
+# OS-generated files
+.DS_Store
+*.swp
+*.swo
+*.swn
+*.orig

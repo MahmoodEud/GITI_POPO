@@ -4337,23 +4337,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Abanoub\\.nuget\\packages\\": {},
+    "C:\\Users\\Mahmoud\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\ITI-GProject.csproj",
+      "projectUniqueName": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
       "projectName": "ITI-GProject",
-      "projectPath": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\ITI-GProject.csproj",
-      "packagesPath": "C:\\Users\\Abanoub\\.nuget\\packages\\",
-      "outputPath": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\obj\\",
+      "projectPath": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
+      "packagesPath": "C:\\Users\\Mahmoud\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Abanoub\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mahmoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4362,6 +4362,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4438,7 +4439,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
