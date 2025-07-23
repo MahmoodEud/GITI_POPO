@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|c:\\users\\mahmoud\\desktop\\elbasit\\elbasititigrad\\giti_popo\\iti-gproject\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|c:\\users\\mahmoud\\desktop\\elbasit\\elbasititigrad\\giti_popo\\iti-gproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -28,6 +32,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\ITI-GProject\\.gitignore",
+              "RelativeDocumentMoniker": "ITI-GProject\\.gitignore",
+              "ToolTip": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\ITI-GProject\\.gitignore",
+              "RelativeToolTip": "ITI-GProject\\.gitignore",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAQwE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-07-23T15:51:21.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\ITI-GProject\\Program.cs",
               "RelativeDocumentMoniker": "ITI-GProject\\Program.cs",
@@ -40,33 +57,30 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.AspNetUsers [Data]",
+              "DocumentIndex": 4,
+              "Title": "dbo.AspNetUsers.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUsers.sql",
-              "ToolTip": "dbo.AspNetUsers [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUsers.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-07-23T15:49:04.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T15:49:04.594Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "dbo.AspNetUserRoles.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUserRoles.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUserRoles.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-07-23T15:48:13.147Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dbo.AspNetUserRoles [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUserRoles.sql",
-              "ToolTip": "dbo.AspNetUserRoles [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-07-23T15:48:13.147Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "dbo.AspNetRoles [Data]",
+              "Title": "dbo.AspNetRoles.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetRoles.sql",
-              "ToolTip": "dbo.AspNetRoles [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetRoles.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-07-23T15:48:09.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-23T15:48:09.125Z"
             }
           ]
         }
