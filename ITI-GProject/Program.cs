@@ -1,4 +1,5 @@
 using ITI_GProject.Data.GContext;
+using ITI_GProject.Profiles;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppGConetxt>(options => options.UseSqlServer(builder
     .Configuration.GetConnectionString("GConnection")));
+
+builder.Services.AddAutoMapper(typeof( CourseProfiles ));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppGConetxt>().AddDefaultTokenProviders();
 
