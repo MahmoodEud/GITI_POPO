@@ -1,4 +1,8 @@
-﻿namespace ITI_GProject.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection.PortableExecutable;
+
+namespace ITI_GProject.Data.Models
 {
     public class Question
     {

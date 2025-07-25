@@ -1,4 +1,6 @@
-﻿namespace ITI_GProject.Profiles
+﻿using AutoMapper;
+
+namespace ITI_GProject.Profiles
 {
     public class CourseProfiles:Profile
     {
@@ -6,9 +8,6 @@
         {
             CreateMap<Course, CourseDTO>().ReverseMap();
             CreateMap<CourseUpdateDTO, Course>().ReverseMap();
-            // Lessons
-            CreateMap<Lesson, LessonDTO>().ReverseMap();
-            CreateMap<LessonUpdateDto, Lesson>().ReverseMap();
         }
     }
 }

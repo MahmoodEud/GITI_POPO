@@ -1,4 +1,11 @@
+using ITI_GProject.Data.GContext;
+using ITI_GProject.Profiles;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +24,6 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFramework
 
 builder.Services.AddAuthentication(option =>
 {
-    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
@@ -27,12 +33,12 @@ builder.Services.AddAuthentication(option =>
 
     option.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = false,
-        ValidateAudience = false,
+        ValidateIssuer = true,
+        ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        //ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-        //ValidAudience = builder.Configuration["JWT:ValidAudience"],
+        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+        ValidAudience = builder.Configuration["JWT:ValidAudience"],
         IssuerSigningKey = new SymmetricSecurityKey(
         Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])
     )
@@ -40,17 +46,6 @@ builder.Services.AddAuthentication(option =>
 
 
 });
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll",
-        policy =>
-        {
-            policy.AllowAnyOrigin()
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
-        });
-});
-
 
 
 var app = builder.Build();
@@ -61,32 +56,29 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseRouting();            
 
-app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    await SeedRolesAsync(app);
+    await SeedRolesAsync(services);
 }
 app.Run();
-static async Task SeedRolesAsync(WebApplication app)
+static async Task SeedRolesAsync(IServiceProvider serviceProvider)
 {
-    using var scope = app.Services.CreateScope();
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    string[] roleNames = { "Admin", "Student", "Assistance" };
 
-    string[] roles = { "Admin", "Student", "Assistance" };
-
-    foreach (var role in roles)
+    foreach (var roleName in roleNames)
     {
-        if (!await roleManager.RoleExistsAsync(role))
+        if (!await roleManager.RoleExistsAsync(roleName))
         {
-            await roleManager.CreateAsync(new IdentityRole(role));
+            await roleManager.CreateAsync(new IdentityRole(roleName));
         }
     }
 }

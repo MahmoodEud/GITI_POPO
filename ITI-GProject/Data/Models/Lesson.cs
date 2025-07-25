@@ -1,4 +1,8 @@
-﻿namespace ITI_GProject.Data.Models
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ITI_GProject.Data.Models
 {
     public class Lesson
     {

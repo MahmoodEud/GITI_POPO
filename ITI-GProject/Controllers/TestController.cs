@@ -1,37 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
-
-namespace ITI_GProject.Controllers
+﻿namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class TestController : ControllerBase
     {
-        [Authorize(Roles ="Student")]
+        // GET: api/<TestController>
         [HttpGet]
-        public IActionResult Get()
+        public IEnumerable<string> Get()
         {
-            var username = User.Identity?.Name;
-            var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-
-            return Ok(new
-            {
-                Message = "✅ تم الوصول بنجاح! التوكن شغال.",
-                UserName = username,
-                Role = role
-            });
+            return new string[] { "value1", "value2" };
         }
-        [Authorize(Roles = "Assistance")]
-        [HttpGet("check")]
-        public IActionResult Check()
-        {
-            return Ok(new
-            {
-                Protocol = Request.Scheme,
-                Host = Request.Host.ToString(),
-                IsHttps = Request.IsHttps
-            });
-        }
-
 
         // GET api/<TestController>/5
         [HttpGet("{id}")]

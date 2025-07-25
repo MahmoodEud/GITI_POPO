@@ -10,8 +10,7 @@
         [Required(ErrorMessage = "اسم المستخدم مطلوب")]
         [Display(Name = "اسم المستخدم")]
         [RegularExpression(@"^(?!.*[_.]{2})(?![_.])[a-zA-Z0-9._]{4,18}(?<![_.])$",
-    ErrorMessage = "اسم المستخدم يجب أن يتكون من 4 إلى 18 حرف ويمكن أن يحتوي على نقاط أو شرطات سفلية بدون تكرار أو بداية/نهاية بها"
-)]
+    ErrorMessage = "الاسم يجب أن يتكون من 4 مقاطع باللغة العربية أو الإنجليزية فقط بدون رموز أو أرقام")]
         public string UserName { get; set; }
 
 
@@ -24,7 +23,7 @@
         [Required(ErrorMessage = "رقم ولي الأمر مطلوب")]
         [Display(Name = "رقم ولي الأمر")]
         [RegularExpression(@"^01[0125][0-9]{8}$", ErrorMessage = "رقم ولي الأمر يجب أن يكون مكون من 11 رقم ويبدأ بـ 010 أو 011 أو 012 أو 015")]
-        public string ParentPhone { get; set; }
+        public string Pphone { get; set; }
 
         [Required(ErrorMessage = "تاريخ الميلاد مطلوب")]
         [DataType(DataType.Date)]
@@ -45,6 +44,5 @@
         [Display(Name = "تأكيد كلمة المرور")]
         public string ConfirmPassword { get; set; }
         public bool IsApproved { get; set; } = false;
-
     }
 }

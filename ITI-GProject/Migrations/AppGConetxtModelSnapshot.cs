@@ -77,8 +77,15 @@ namespace ITI_GProject.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Pphone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StudentYear")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -265,30 +272,38 @@ namespace ITI_GProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("FName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
+
+                    b.Property<string>("LName")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("ParentNumber")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
+                    b.Property<string>("Passowrd")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(11)
                         .HasColumnType("nvarchar(11)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
 
                     b.ToTable("Students");
                 });
@@ -563,17 +578,6 @@ namespace ITI_GProject.Migrations
                     b.Navigation("assessment");
                 });
 
-            modelBuilder.Entity("ITI_GProject.Data.Models.Student", b =>
-                {
-                    b.HasOne("ITI_GProject.Data.Models.ApplicationUser", "User")
-                        .WithOne("StudentProfile")
-                        .HasForeignKey("ITI_GProject.Data.Models.Student", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("ITI_GProject.Data.Models.StudentAttempts", b =>
                 {
                     b.HasOne("ITI_GProject.Data.Models.Assessments", "Assessment")
@@ -692,12 +696,6 @@ namespace ITI_GProject.Migrations
                     b.Navigation("SelectedChoice");
 
                     b.Navigation("StudentAttempt");
-                });
-
-            modelBuilder.Entity("ITI_GProject.Data.Models.ApplicationUser", b =>
-                {
-                    b.Navigation("StudentProfile")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("ITI_GProject.Data.Models.Assessments", b =>

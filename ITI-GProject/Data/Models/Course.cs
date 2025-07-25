@@ -1,4 +1,8 @@
-﻿namespace ITI_GProject.Data.Models
+﻿using ITI_GProject.Data.Enums;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace ITI_GProject.Data.Models
 {
     public class Course
     {

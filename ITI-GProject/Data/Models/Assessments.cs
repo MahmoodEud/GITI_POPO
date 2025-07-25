@@ -1,4 +1,5 @@
-﻿namespace ITI_GProject.Data.Models
+﻿
+namespace ITI_GProject.Data.Models
 {
     public class Assessments
     {

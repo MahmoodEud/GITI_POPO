@@ -1,4 +1,6 @@
-﻿namespace ITI_GProject.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ITI_GProject.Data.Models
 {
     public class StudentCourse
     {

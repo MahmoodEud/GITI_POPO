@@ -1,4 +1,6 @@
-﻿namespace ITI_GProject.Data.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ITI_GProject.Data.Models
 {
     public class Choice
     {

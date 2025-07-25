@@ -1,4 +1,9 @@
-﻿namespace ITI_GProject.Controllers
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -9,7 +14,7 @@
         public async Task<ActionResult<List<CourseDTO>>> GetAllCourses()
         {
             var Coursers = await _context.Courses.ToListAsync();
-            if (Coursers.Count == 0 || Coursers is null)
+            if (Coursers is null || Coursers.Count == 0)
             {
                 return NotFound();
             }
@@ -33,7 +38,7 @@
 
         [HttpPost]
 
-        public async Task<ActionResult<CourseDTO>> CreateCourse(CourseUpdateDTO courseUpdateDTO)
+        public async Task<ActionResult<CourseDTO>> CreateCourse( CourseUpdateDTO courseUpdateDTO)
         {
             if (courseUpdateDTO == null)
             {
@@ -54,6 +59,8 @@
 
             return StatusCode(500);
 
+
+
         }
 
         [HttpDelete]
@@ -68,10 +75,31 @@
             }
             _context.Courses.Remove(course);
             return await _context.SaveChangesAsync() > 0;
+        }
 
+        [HttpPut("id")]
 
+        public async Task<ActionResult<CourseDTO>> UpdateCourse(int id , CourseUpdateDTO courseUpdateDTO)
+        {
+            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
+            if(course is null)
+            {
+                return NotFound();
+            }
 
+            course.Title = courseUpdateDTO.Title;
+            course.Description  = courseUpdateDTO.Description;
+            course.Category = courseUpdateDTO.Category;
+            course.Year = courseUpdateDTO.Year;
+            course.Status = courseUpdateDTO.Status;
 
+          
+
+            await _context.SaveChangesAsync();
+
+            var courseDTo = _mapper.Map<Course, CourseDTO>(course);
+
+            return Ok(courseDTo);
         }
     }
 }
