@@ -1,16 +1,13 @@
-﻿
-
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController(UserManager<ApplicationUser> userManager,IConfiguration config, RoleManager<IdentityRole> roleManager
+    public class AccountController(AppGConetxt context, UserManager<ApplicationUser> userManager,IConfiguration config, RoleManager<IdentityRole> roleManager
 ) : ControllerBase
     {
         [HttpPost("Register")]
@@ -27,16 +24,28 @@ namespace ITI_GProject.Controllers
             ApplicationUser user = new ApplicationUser {
                 UserName = registerDto.UserName,
                 Name = registerDto.Name,
-                Pphone = registerDto.Pphone,
                 PhoneNumber = registerDto.Phone,
                 Birthdate = registerDto.Birthdate,
-                StudentYear = registerDto.studentYear,
                 IsApproved = false,
             };
                 var result =await userManager.CreateAsync(user,registerDto.Password);
                 if (result.Succeeded)
                 {
-                    return Ok(new { message = "تم التسجيل بنجاح، في انتظار موافقة الإدارة" });
+                var student = new Student
+                {
+                    Year = registerDto.studentYear,
+                    PhoneNumber = registerDto.Phone,
+                    ParentNumber = registerDto.ParentPhone,
+                    IsActive = true,
+                    UserId = user.Id
+                };
+
+                context.Students.Add(student);
+                await context.SaveChangesAsync();
+
+                await userManager.AddToRoleAsync(user, "Student");
+
+                return Ok(new { message = "تم التسجيل بنجاح، في انتظار موافقة الإدارة" });
                 }
                 foreach (var item in result.Errors)
                 {
@@ -60,27 +69,30 @@ namespace ITI_GProject.Controllers
                 if (Found) 
                 {
                     //genrate token here
-                
+                    if (!userName.IsApproved)
+                    {
+                        ModelState.AddModelError("Approval", "لم تتم الموافقة على الحساب بعد");
+                        return BadRequest(ModelState);
+                    }
                     List<Claim> claims = new List<Claim>();
 
                     claims.Add(new Claim(ClaimTypes.Name, userName.UserName));
                     claims.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
                     claims.Add(new Claim(ClaimTypes.NameIdentifier,userName.Id));
-                    IList<string>result=  await userManager.GetRolesAsync(userName);
-                    foreach (var item in result)
+                    var roles=  await userManager.GetRolesAsync(userName);
+                    foreach (var role in roles)
                     {
-                        claims.Add(new Claim(ClaimTypes.Role, item));
+                        claims.Add(new Claim(ClaimTypes.Role, role));
+                        claims.Add(new Claim("role", role));
                     }
 
                     var key=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWT:Secret"]));
-                    var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                    var signingCred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
                     //Design Token
                     JwtSecurityToken token = new JwtSecurityToken(
-                        issuer: config["JWT:ValidIssuer"],
-                        audience: config["JWT:ValidAudience"],
                         expires: DateTime.Now.AddDays(5),
                         claims: claims,
-                        signingCredentials: signingCredentials
+                        signingCredentials: signingCred
                         );
                     return Ok(new
                     {
@@ -103,15 +115,38 @@ namespace ITI_GProject.Controllers
         public async Task<IActionResult> AssignRole(string userName, string role)
         {
             var user = await userManager.FindByNameAsync(userName);
-            if (user == null) return NotFound("User not found");
+            if (user == null)
+                return NotFound($"المستخدم '{userName}' غير موجود");
 
             if (!await roleManager.RoleExistsAsync(role))
-                return BadRequest("Role does not exist");
+                return BadRequest($"الدور '{role}' غير موجود");
+
+            if (await userManager.IsInRoleAsync(user, role))
+                return BadRequest($"المستخدم '{userName}' يمتلك الدور '{role}' بالفعل");
+
+            var currentRoles = await userManager.GetRolesAsync(user);
+            await userManager.RemoveFromRolesAsync(user, currentRoles);
 
             var result = await userManager.AddToRoleAsync(user, role);
-            if (!result.Succeeded) return BadRequest("Failed to assign role");
+            if (!result.Succeeded)
+                return BadRequest($"فشل في تعيين الدور: {string.Join(", ", result.Errors.Select(e => e.Description))}");
 
-            return Ok("Role assigned successfully");
+            return Ok($"تم تعيين الدور '{role}' للمستخدم '{userName}' بنجاح");
+        }
+
+        [HttpPost("ApproveUser")]
+        public async Task<IActionResult> ApproveUser(string userName)
+        {
+            var user = await userManager.FindByNameAsync(userName);
+            if (user == null)
+                return NotFound("المستخدم غير موجود");
+
+            user.IsApproved = true;
+            var result = await userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+                return BadRequest("فشل في تفعيل المستخدم");
+
+            return Ok("تمت الموافقة على الحساب بنجاح");
         }
 
     }

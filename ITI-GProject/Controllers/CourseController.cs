@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-namespace ITI_GProject.Controllers
+﻿namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -38,7 +33,7 @@ namespace ITI_GProject.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult<CourseDTO>> CreateCourse([FromForm] CourseUpdateDTO courseUpdateDTO)
+        public async Task<ActionResult<CourseDTO>> CreateCourse(CourseUpdateDTO courseUpdateDTO)
         {
             if (courseUpdateDTO == null)
             {
@@ -58,8 +53,6 @@ namespace ITI_GProject.Controllers
             }
 
             return StatusCode(500);
-
-
 
         }
 

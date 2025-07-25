@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "G:\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj": {}
+    "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj": {}
   },
   "projects": {
-    "G:\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj": {
+    "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
+        "projectUniqueName": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
         "projectName": "ITI-GProject",
-        "projectPath": "G:\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
-        "packagesPath": "C:\\Users\\Mohamed-pc\\.nuget\\packages\\",
-        "outputPath": "G:\\GITI_POPO\\ITI-GProject\\obj\\",
+        "projectPath": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
+        "packagesPath": "C:\\Users\\Mahmoud\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mahmoud\\Desktop\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mohamed-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mahmoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -1,6 +1,4 @@
-﻿using ITI_GProject.Data.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿
 
 namespace ITI_GProject.Data.GContext
 {
@@ -92,7 +90,10 @@ namespace ITI_GProject.Data.GContext
                 .WithMany(sa => sa.StudentResponses)
                 .HasForeignKey(sr => sr.AttemptId)
                 .OnDelete(DeleteBehavior.NoAction);
-
+            modelBuilder.Entity<ApplicationUser>()
+    .HasOne(u => u.StudentProfile)
+    .WithOne(s => s.User)
+    .HasForeignKey<Student>(s => s.UserId);
 
         }
 
