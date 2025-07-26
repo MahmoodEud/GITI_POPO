@@ -1,9 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-#nullable disable
-
-namespace ITI_GProject.Migrations
+﻿namespace ITI_GProject.Migrations
 {
     /// <inheritdoc />
     public partial class newDB : Migration
