@@ -1,5 +1,6 @@
 using ITI_GProject.Data.GContext;
 using ITI_GProject.Profiles;
+using ITI_GProject.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +16,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IAssessments, AssessmentService>();
 builder.Services.AddDbContext<AppGConetxt>(options => options.UseSqlServer(builder
     .Configuration.GetConnectionString("GConnection")));
 

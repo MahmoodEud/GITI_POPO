@@ -448,3 +448,16 @@ G:\GITI_POPO\ITI-GProject\obj\Debug\net8.0\ITI-GProject.genruntimeconfig.cache
 G:\GITI_POPO\ITI-GProject\obj\Debug\net8.0\ref\ITI-GProject.dll
 G:\GITI_POPO\ITI-GProject\bin\Debug\net8.0\AutoMapper.dll
 G:\GITI_POPO\ITI-GProject\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\AutoMapper.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\API Projects\ITI-GProject\ITI-GProject\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\API Projects\ITI-GProject\ITI-GProject\obj\Debug\net8.0\ITI-GProject.sourcelink.json
+D:\API Projects\ITI-GProject\ITI-GProject\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\API Projects\ITI-GProject\ITI-GProject\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\API Projects\ITI-GProject\ITI-GProject\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\API Projects\ITI-GProject\ITI-GProject\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

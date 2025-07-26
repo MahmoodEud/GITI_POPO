@@ -92,6 +92,22 @@ namespace ITI_GProject.Data.GContext
                 .WithMany(sa => sa.StudentResponses)
                 .HasForeignKey(sr => sr.AttemptId)
                 .OnDelete(DeleteBehavior.NoAction);
+            //////////////////////////////////////
+            ///
+
+
+
+            modelBuilder.Entity<Assessments>()
+                .HasMany(a => a.Questions)
+                .WithOne(q => q.assessment)
+                .HasForeignKey(q => q.QuizId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Question>()
+                .HasMany(q => q.choices)
+                .WithOne(c => c.question)
+                .HasForeignKey(c => c.QuestionId)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
         }

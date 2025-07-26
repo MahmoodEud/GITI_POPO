@@ -4474,23 +4474,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mohamed-pc\\.nuget\\packages\\": {},
+    "C:\\Users\\Abanoub\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
+      "projectUniqueName": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\ITI-GProject.csproj",
       "projectName": "ITI-GProject",
-      "projectPath": "G:\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
-      "packagesPath": "C:\\Users\\Mohamed-pc\\.nuget\\packages\\",
-      "outputPath": "G:\\GITI_POPO\\ITI-GProject\\obj\\",
+      "projectPath": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\ITI-GProject.csproj",
+      "packagesPath": "C:\\Users\\Abanoub\\.nuget\\packages\\",
+      "outputPath": "D:\\API Projects\\ITI-GProject\\ITI-GProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Mohamed-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Abanoub\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
