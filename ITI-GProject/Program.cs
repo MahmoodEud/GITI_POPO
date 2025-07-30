@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 using ITI_GProject.Data.GContext;
 using ITI_GProject.Profiles;
 using ITI_GProject.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-=======
->>>>>>> e5c8a3e4815c99b2a65d77ecffd3735e7911c1ac
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +15,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAssessments, AssessmentService>();
+builder.Services.AddAutoMapper(typeof(QuestionProfile));
+builder.Services.AddScoped<IQuestion, QuestionService>();
+builder.Services.AddScoped<IChoice, ChoiceService>();
+
 builder.Services.AddDbContext<AppGConetxt>(options => options.UseSqlServer(builder
     .Configuration.GetConnectionString("GConnection")));
 

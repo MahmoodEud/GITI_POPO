@@ -90,7 +90,6 @@ namespace ITI_GProject.Data.GContext
                 .WithMany(sa => sa.StudentResponses)
                 .HasForeignKey(sr => sr.AttemptId)
                 .OnDelete(DeleteBehavior.NoAction);
-<<<<<<< HEAD
             //////////////////////////////////////
             ///
 
@@ -108,12 +107,10 @@ namespace ITI_GProject.Data.GContext
                 .HasForeignKey(c => c.QuestionId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-=======
             modelBuilder.Entity<ApplicationUser>()
     .HasOne(u => u.StudentProfile)
     .WithOne(s => s.User)
     .HasForeignKey<Student>(s => s.UserId);
->>>>>>> e5c8a3e4815c99b2a65d77ecffd3735e7911c1ac
 
         }
 

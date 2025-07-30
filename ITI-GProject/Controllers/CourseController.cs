@@ -33,11 +33,7 @@
 
         [HttpPost]
 
-<<<<<<< HEAD
-        public async Task<ActionResult<CourseDTO>> CreateCourse( CourseUpdateDTO courseUpdateDTO)
-=======
         public async Task<ActionResult<CourseDTO>> CreateCourse(CourseUpdateDTO courseUpdateDTO)
->>>>>>> 037a777 (Roles&student&lesson Created)
         {
             if (courseUpdateDTO == null)
             {
