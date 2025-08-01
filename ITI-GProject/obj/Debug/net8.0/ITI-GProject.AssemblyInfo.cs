@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ITI-GProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+833d375df3e1adf682d58030046767a6e1ad940e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f933c69d2c026948021f2fc29ac8bc7379d8df6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ITI-GProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ITI-GProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
