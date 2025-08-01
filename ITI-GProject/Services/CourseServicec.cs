@@ -51,15 +51,15 @@ namespace ITI_GProject.Services
             return coursesDTO;
         }
 
-        public async Task<CourseDTO> GetCourseByIdAsync( int CourseId)
+        public async Task<CourseDTO> GetCourseByIdAsync( int CourseId , int studentId)
         {
 
-            //var isEnrolled = await _context.StudentCourses.AnyAsync(s => s.Student_Id == studentId && s.Course_Id == CourseId);
+            var isEnrolled = await _context.StudentCourses.AnyAsync(s => s.Student_Id == studentId && s.Course_Id == CourseId);
 
-            //if (!isEnrolled)
-            //{
-            //    return null!;
-            //}
+            if (!isEnrolled)
+            {
+                return null!;
+            }
 
 
 

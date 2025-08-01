@@ -25,12 +25,12 @@ namespace ITI_GProject.Controllers
         [HttpGet("CourseId")]
         public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
         {
-            //int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int studentId);
-            var CourseDTO = await courseService.GetCourseByIdAsync( CourseId);
-            //if (studentId == 0)
-            //{
-            //    return Unauthorized("Student is not logged in.");
-            //}
+            int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int studentId);
+            var CourseDTO = await courseService.GetCourseByIdAsync( CourseId ,studentId);
+            if (studentId == 0)
+            {
+                return Unauthorized("Student is not logged in.");
+            }
             if (CourseDTO is not null)
             {
                 return Ok(CourseDTO);
