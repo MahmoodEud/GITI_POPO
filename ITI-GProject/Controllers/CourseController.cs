@@ -1,98 +1,82 @@
-﻿namespace ITI_GProject.Controllers
+﻿using ITI_GProject.Services;
+
+namespace ITI_GProject.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class CourseController(AppGConetxt _context,IMapper _mapper ) : ControllerBase
+    [Route("api/[controller]")]
+    public class CourseController(ICourseService courseService ) : ControllerBase
     {
 
         [HttpGet]
-        public async Task<ActionResult<List<CourseDTO>>> GetAllCourses()
+        public async Task<ActionResult<IEnumerable<CourseDTO>>> GetAllCourses()
         {
-            var Coursers = await _context.Courses.ToListAsync();
-            if (Coursers is null || Coursers.Count == 0)
+            var Courses = await courseService.GetAllCoursesAsync();
+
+            if (Courses is not null)
             {
-                return NotFound();
+            return Ok(Courses);
+
             }
-            var coursesDTO = _mapper.Map<List<Course>, List<CourseDTO>>(Coursers);
-            return Ok(coursesDTO);
+
+            return NotFound("Not Course Found");
 
         }
 
-        [HttpGet("id")]
-        public async Task<ActionResult<CourseDTO>> GetCourseById(int id)
+        [HttpGet("CourseId")]
+        public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
         {
-            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
-            if (course == null)
+            int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int studentId);
+            var CourseDTO = await courseService.GetCourseByIdAsync( CourseId ,studentId);
+            if (studentId == 0)
             {
-                return NotFound();
+                return Unauthorized("Student is not logged in.");
             }
-            var courseDTO = _mapper.Map<Course, CourseDTO>(course);
-
-            return Ok(courseDTO);
+            if (CourseDTO is not null)
+            {
+                return Ok(CourseDTO);
+            }
+            return NotFound();
         }
 
         [HttpPost]
 
-        public async Task<ActionResult<CourseDTO>> CreateCourse(CourseUpdateDTO courseUpdateDTO)
+        public async Task<ActionResult<CourseDTO>> CreateCourse(CourseUpdateDTO CoursCreate)
         {
-            if (courseUpdateDTO == null)
+            var CourseCreate = await courseService.CreateCourseAsync( CoursCreate);
+
+            if(CoursCreate is null)
             {
                 return BadRequest();
             }
 
-            var course = _mapper.Map<CourseUpdateDTO, Course>(courseUpdateDTO);
-
-            await _context.Courses.AddAsync(course);
-
-            int res = await _context.SaveChangesAsync();
-
-            if (res > 0)
-            {
-                var courseDTo = _mapper.Map<Course, CourseDTO>(course);
-                return Ok(courseDTo);
-            }
-
-            return StatusCode(500);
+            return Ok(CoursCreate);
 
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
-        public async Task<bool> DeleteCourseById(int id)
+        public async Task<ActionResult> DeleteCourseById(int id)
         {
-            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
-
-            if (course == null)
+            var isDeleted = await courseService.DeleteCourseById(id);
+            if(isDeleted)
             {
-                return false;
+                return Ok($"Course With Id{id} Id Deleted");
             }
-            _context.Courses.Remove(course);
-            return await _context.SaveChangesAsync() > 0;
+            return NotFound();
         }
 
         [HttpPut("id")]
 
         public async Task<ActionResult<CourseDTO>> UpdateCourse(int id , CourseUpdateDTO courseUpdateDTO)
         {
-            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
-            if(course is null)
+            var CourseUpdate = await courseService.UpdateCourseAsync(id, courseUpdateDTO);
+
+            if(CourseUpdate is null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            course.Title = courseUpdateDTO.Title;
-            course.Description  = courseUpdateDTO.Description;
-            course.Category = courseUpdateDTO.Category;
-            course.Year = courseUpdateDTO.Year;
-            course.Status = courseUpdateDTO.Status;
-
-          
-
-            await _context.SaveChangesAsync();
-
-            var courseDTo = _mapper.Map<Course, CourseDTO>(course);
-
-            return Ok(courseDTo);
-        }
+            return Ok(CourseUpdate);
+         }
     }
 }

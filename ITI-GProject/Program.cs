@@ -10,6 +10,7 @@ builder.Services.AddScoped<IAssessments, AssessmentService>();
 builder.Services.AddAutoMapper(typeof(QuestionProfile));
 builder.Services.AddScoped<IQuestion, QuestionService>();
 builder.Services.AddScoped<IChoice, ChoiceService>();
+builder.Services.AddScoped<ICourseService, CourseServices>();
 
 builder.Services.AddDbContext<AppGConetxt>(options => options.UseSqlServer(builder
     .Configuration.GetConnectionString("GConnection")));
