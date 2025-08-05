@@ -1,9 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System.Data;
-
-namespace ITI_GProject.Controllers
+﻿namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -11,49 +6,94 @@ namespace ITI_GProject.Controllers
 ) : ControllerBase
     {
         [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody]RegisterDTO registerDto) {
+        public async Task<IActionResult> Register([FromForm] RegisterDTO registerDto)
+        {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            if (userManager.Users.Any(u => u.UserName == registerDto.UserName))
+            if (await userManager.FindByNameAsync(registerDto.UserName) != null)
             {
                 ModelState.AddModelError("UserName", "اسم المستخدم مستخدم بالفعل");
                 return BadRequest(ModelState);
             }
 
-            ApplicationUser user = new ApplicationUser {
+            if (registerDto.Phone == registerDto.ParentPhone)
+            {
+                ModelState.AddModelError("ParentPhone", "رقم ولي الأمر لا يمكن أن يكون نفس رقم الطالب");
+                return BadRequest(ModelState);
+            }
+
+            var file = registerDto.ProfilePicture;
+
+            if (file == null || file.Length == 0)
+            {
+                ModelState.AddModelError("ProfilePicture", "الصورة مطلوبة");
+                return BadRequest(ModelState);
+            }
+
+            if (file.Length > 2 * 1024 * 1024)
+            {
+                ModelState.AddModelError("ProfilePicture", "الحد الأقصى لحجم الصورة هو 2 ميجا");
+                return BadRequest(ModelState);
+            }
+
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
+            var extension = Path.GetExtension(file.FileName).ToLower();
+
+            if (!allowedExtensions.Contains(extension))
+            {
+                ModelState.AddModelError("ProfilePicture", "نوع الصورة غير مدعوم. استخدم jpg أو png فقط");
+                return BadRequest(ModelState);
+            }
+
+            var fileName = $"{Guid.NewGuid()}{extension}";
+            var imagePath = Path.Combine("wwwroot/images/profiles", fileName);
+            Directory.CreateDirectory(Path.GetDirectoryName(imagePath)!);
+
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            var user = new ApplicationUser
+            {
                 UserName = registerDto.UserName,
                 Name = registerDto.Name,
                 PhoneNumber = registerDto.Phone,
                 Birthdate = registerDto.Birthdate,
-                IsApproved = false,
+                ProfilePictureUrl = $"/images/profiles/{fileName}"
             };
-                var result =await userManager.CreateAsync(user,registerDto.Password);
-                if (result.Succeeded)
+
+            using var transaction = await context.Database.BeginTransactionAsync();
+
+            var result = await userManager.CreateAsync(user, registerDto.Password);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
                 {
-                var student = new Student
-                {
-                    Year = registerDto.studentYear,
-                    PhoneNumber = registerDto.Phone,
-                    ParentNumber = registerDto.ParentPhone,
-                    IsActive = true,
-                    UserId = user.Id
-                };
-
-                context.Students.Add(student);
-                await context.SaveChangesAsync();
-
-                await userManager.AddToRoleAsync(user, "Student");
-
-                return Ok(new { message = "تم التسجيل بنجاح، في انتظار موافقة الإدارة" });
+                    ModelState.AddModelError("", error.Description);
                 }
-                foreach (var item in result.Errors)
-                {
-                    ModelState.AddModelError("", item.Description);
-                }
-            
-            return BadRequest(ModelState);
+                return BadRequest(ModelState);
+            }
 
+            var student = new Student
+            {
+                Year = registerDto.studentYear,
+                PhoneNumber = registerDto.Phone,
+                ParentNumber = registerDto.ParentPhone,
+                IsActive = true,
+                UserId = user.Id
+            };
+
+            context.Students.Add(student);
+            await context.SaveChangesAsync();
+
+            await userManager.AddToRoleAsync(user, "Student");
+            await transaction.CommitAsync();
+
+            return Ok(new { message = "تم التسجيل بنجاح" ,
+                profileImage = user.ProfilePictureUrl
+            });
         }
 
         [HttpPost("Login")]
@@ -68,12 +108,6 @@ namespace ITI_GProject.Controllers
               bool Found=await userManager.CheckPasswordAsync(userName, loginDto.Password);
                 if (Found) 
                 {
-                    //genrate token here
-                    if (!userName.IsApproved)
-                    {
-                        ModelState.AddModelError("Approval", "لم تتم الموافقة على الحساب بعد");
-                        return BadRequest(ModelState);
-                    }
                     List<Claim> claims = new List<Claim>();
 
                     claims.Add(new Claim(ClaimTypes.Name, userName.UserName));
@@ -134,20 +168,6 @@ namespace ITI_GProject.Controllers
             return Ok($"تم تعيين الدور '{role}' للمستخدم '{userName}' بنجاح");
         }
 
-        [HttpPost("ApproveUser")]
-        public async Task<IActionResult> ApproveUser(string userName)
-        {
-            var user = await userManager.FindByNameAsync(userName);
-            if (user == null)
-                return NotFound("المستخدم غير موجود");
-
-            user.IsApproved = true;
-            var result = await userManager.UpdateAsync(user);
-            if (!result.Succeeded)
-                return BadRequest("فشل في تفعيل المستخدم");
-
-            return Ok("تمت الموافقة على الحساب بنجاح");
-        }
 
     }
 }

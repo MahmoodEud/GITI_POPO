@@ -1,9 +1,4 @@
-﻿using ITI_GProject.DTOs.AssessmentDTO;
-using ITI_GProject.DTOs.QuestionsDTO;
-using ITI_GProject.Services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-
+﻿
 namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]

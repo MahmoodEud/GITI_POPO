@@ -1,11 +1,3 @@
-using ITI_GProject.Data.GContext;
-using ITI_GProject.Profiles;
-using ITI_GProject.Services;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,7 +15,14 @@ builder.Services.AddDbContext<AppGConetxt>(options => options.UseSqlServer(build
     .Configuration.GetConnectionString("GConnection")));
 
 builder.Services.AddAutoMapper(typeof( CourseProfiles ));
-
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 1;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = false;
+});
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppGConetxt>().AddDefaultTokenProviders();
 
 builder.Services.AddAuthentication(option =>
@@ -76,6 +75,8 @@ app.UseRouting();
 
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

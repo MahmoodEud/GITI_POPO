@@ -25,6 +25,9 @@
         [Display(Name = "رقم ولي الأمر")]
         [RegularExpression(@"^01[0125][0-9]{8}$", ErrorMessage = "رقم ولي الأمر يجب أن يكون مكون من 11 رقم ويبدأ بـ 010 أو 011 أو 012 أو 015")]
         public string ParentPhone { get; set; }
+        [Required]
+        public IFormFile? ProfilePicture { get; set; }
+
 
         [Required(ErrorMessage = "تاريخ الميلاد مطلوب")]
         [DataType(DataType.Date)]
@@ -44,7 +47,6 @@
         [Compare("Password", ErrorMessage = "كلمة المرور وتأكيدها غير متطابقين")]
         [Display(Name = "تأكيد كلمة المرور")]
         public string ConfirmPassword { get; set; }
-        public bool IsApproved { get; set; } = false;
 
     }
 }

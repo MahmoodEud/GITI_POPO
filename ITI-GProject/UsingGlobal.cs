@@ -17,4 +17,7 @@ global using System.Text;
 global using ITI_GProject.Profiles;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.EntityFrameworkCore.Migrations;
-global using System.Text.Json;
+global using System.Data;
+global using ITI_GProject.DTOs.AssessmentDTO;
+global using ITI_GProject.DTOs.QuestionsDTO;
+global using ITI_GProject.Services;

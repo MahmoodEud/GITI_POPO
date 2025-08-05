@@ -17,7 +17,9 @@ out/
 
 # Rider settings (if you're using JetBrains Rider)
 .idea/
-
+.vs/
+bin/
+obj/
 # ASP.NET Core secrets
 **/secrets.json
 
