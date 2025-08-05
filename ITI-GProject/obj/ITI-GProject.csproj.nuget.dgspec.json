@@ -1,19 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj": {}
-  },
-  "projects": {
-    "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
-        "projectName": "ITI-GProject",
-        "projectPath": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
-        "packagesPath": "C:\\Users\\Mahmoud\\.nuget\\packages\\",
-        "outputPath": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\obj\\",
-=======
     "G:\\Final Project\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj": {}
   },
   "projects": {
@@ -25,17 +12,12 @@
         "projectPath": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\ITI-GProject.csproj",
         "packagesPath": "C:\\Users\\Mohamed-pc\\.nuget\\packages\\",
         "outputPath": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\obj\\",
->>>>>>> 52345f651374d362da50ce00ac922010973934e7
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-          "C:\\Users\\Mahmoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
           "C:\\Users\\Mohamed-pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 52345f651374d362da50ce00ac922010973934e7
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
