@@ -50,7 +50,17 @@ namespace ITI_GProject.Services
             var coursesDTO = _mapper.Map<List<Course>, List<CourseDTO>>(Coursers);
             return coursesDTO;
         }
+        public async Task<CourseDTO> GetCourseByIdAsync(int CourseId)
+        {
+            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == CourseId);
+            if (course == null)
+            {
+                return null!;
+            }
+            var courseDTO = _mapper.Map<Course, CourseDTO>(course);
 
+            return courseDTO;
+        }
         public async Task<CourseDTO> GetCourseByIdAsync( int CourseId , int studentId)
         {
 

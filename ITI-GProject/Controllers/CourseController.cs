@@ -25,6 +25,14 @@ namespace ITI_GProject.Controllers
         [HttpGet("CourseId")]
         public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
         {
+
+            var userRole = User.FindFirstValue(ClaimTypes.Role);
+
+            if(userRole == "Admin")
+            {
+                //var courseDto = await courseService.GetCourseByIdAsync(CourseId);
+            }
+
             int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int studentId);
             var CourseDTO = await courseService.GetCourseByIdAsync( CourseId ,studentId);
             if (studentId == 0)
