@@ -18,6 +18,8 @@
         [MaxLength(500)]
         public string Description { get; set; } = null!;
         [Required]
-        public bool Status { get; set; }
+
+        public string PicturalUrl { get; set; } = default!;
+     public bool Status { get; set; }
     }
 }

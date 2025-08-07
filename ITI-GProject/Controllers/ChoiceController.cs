@@ -1,5 +1,6 @@
 ﻿using ITI_GProject.DTOs.ChoicesDTO;
 using ITI_GProject.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,6 +8,7 @@ namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class ChoiceController : ControllerBase
     {
         private readonly IChoice _choiceService;
@@ -17,7 +19,7 @@ namespace ITI_GProject.Controllers
             _mapper = mapper;
         }
 
-
+        [Authorize(Roles ="Admin")]
         [HttpGet("GetChoiceById/{id}")]
 
         public async Task<ActionResult<ChoiceDTO>>GetChoiceById (int id)
@@ -35,7 +37,7 @@ namespace ITI_GProject.Controllers
 
 
         }
-
+        [Authorize]
         [HttpGet("GetByQuestionId/{questionId}")]
 
         public async Task<ActionResult<IEnumerable<ChoiceDTO>>>GetChoiceByQuestionId(int questionId)
@@ -47,7 +49,7 @@ namespace ITI_GProject.Controllers
 
 
         [HttpPost]
-
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<ChoiceDTO>>AddNewChoice(CreateDTO dto)
         {
             try
@@ -64,7 +66,7 @@ namespace ITI_GProject.Controllers
 
 
         [HttpPut("{id}")]
-
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> UpdateChoice(int id, UpdateDTO updateDto)
         {
             try
@@ -85,7 +87,8 @@ namespace ITI_GProject.Controllers
         }
 
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult>DeleteChoice (int id)
         {
             try

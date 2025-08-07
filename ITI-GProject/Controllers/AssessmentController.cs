@@ -1,8 +1,11 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
+
 namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AssessmentController : ControllerBase
     {
 
@@ -14,7 +17,7 @@ namespace ITI_GProject.Controllers
             _assessmentService = assessmentsService;
         }
 
-
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AssDTO>>> GetAllAssessments()
         {
@@ -23,7 +26,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpGet("{id}")]
-
+      
         public async Task<ActionResult<AssDTO>>AssessmnetById(int id)
         {
             var assessment = await _assessmentService.GetAssessmetById(id);
@@ -36,8 +39,8 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpGet("AssessmentByLesson/ {LessonId}")]
-
-         public async Task<ActionResult<IEnumerable<AssDTO>>> GetAssessmentsByLesson(int lessonId)
+       
+        public async Task<ActionResult<IEnumerable<AssDTO>>> GetAssessmentsByLesson(int lessonId)
         {
             var assessments = await _assessmentService.GetAssessmentByLessonId(lessonId);
 

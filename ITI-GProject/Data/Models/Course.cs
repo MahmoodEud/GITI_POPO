@@ -19,6 +19,7 @@
         [Required]
         public bool Status { get; set; }
 
+        public string PicturalUrl { get; set; } = default!;
         //one to many relation between course and lesson
         public virtual ICollection<Lesson>? Lessons { get; set; } = new HashSet<Lesson>();
         /// Many to many relation between student and course 

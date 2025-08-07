@@ -1,52 +1,102 @@
 {
   "Version": 1,
-<<<<<<< HEAD
-  "WorkspaceRootPath": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\very important\\elbasit\\elbasititigrad\\giti_popo\\giti_popo\\iti-gproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\very important\\elbasit\\elbasititigrad\\giti_popo\\giti_popo\\iti-gproject\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.Students.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUsers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\very important\\elbasit\\elbasititigrad\\giti_popo\\giti_popo\\iti-gproject\\data\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|d:\\very important\\elbasit\\elbasititigrad\\giti_popo\\giti_popo\\iti-gproject\\data\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
   "WorkspaceRootPath": "G:\\Final Project\\GITI_POPO\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\courseservicec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\courseservicec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\icourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\icourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\studentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\studentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\istudentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\istudentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\dtos\\studentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\data\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\dtos\\coursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\dtos\\coursedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\assessmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\assessmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> 52345f651374d362da50ce00ac922010973934e7
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\courseservicec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\courseservicec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\dtos\\courseupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\dtos\\courseupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\data\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\attachment\\attachments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\attachment\\attachments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\profiles\\courseprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\profiles\\courseprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|G:\\Final Project\\GITI_POPO\\ITI-GProject\\Migrations\\20250807184839_Add pictureUrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ITI-GProject\\Migrations\\20250807184839_Add pictureUrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\attachment\\iattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\attachment\\iattachment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\lessoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\choicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\choicecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\controllers\\assessmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\controllers\\assessmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\services\\icourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\services\\icourseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|g:\\final project\\giti_popo\\iti-gproject\\data\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{093E5DD1-1BB1-4588-9E68-B93CD3A67E91}|ITI-GProject\\ITI-GProject.csproj|solutionrelative:iti-gproject\\data\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -56,140 +106,315 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
-<<<<<<< HEAD
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.AspNetUsers.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUsers.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.AspNetUsers.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-08-04T18:36:22.8Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "dbo.Students.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.Students.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/./ITIGDataa/True/SqlTable/dbo.Students.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-08-04T18:35:29.726Z"
-=======
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AssessmentService.cs",
-              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\AssessmentService.cs",
-              "RelativeDocumentMoniker": "ITI-GProject\\Services\\AssessmentService.cs",
-              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\AssessmentService.cs",
-              "RelativeToolTip": "ITI-GProject\\Services\\AssessmentService.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAADgv4UAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-01T19:48:04.791Z",
-              "EditorCaption": ""
->>>>>>> 52345f651374d362da50ce00ac922010973934e7
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-<<<<<<< HEAD
-              "Title": "RegisterDTO.cs",
-              "DocumentMoniker": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\DTOs\\RegisterDTO.cs",
-              "RelativeDocumentMoniker": "ITI-GProject\\DTOs\\RegisterDTO.cs",
-              "ToolTip": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\DTOs\\RegisterDTO.cs",
-              "RelativeToolTip": "ITI-GProject\\DTOs\\RegisterDTO.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAwwDQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T18:13:20.987Z",
-=======
-              "Title": "ICourseService.cs",
-              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\ICourseService.cs",
-              "RelativeDocumentMoniker": "ITI-GProject\\Services\\ICourseService.cs",
-              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\ICourseService.cs",
-              "RelativeToolTip": "ITI-GProject\\Services\\ICourseService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-01T19:49:01.088Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "CourseController.cs",
               "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\CourseController.cs",
               "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\CourseController.cs",
               "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\CourseController.cs",
               "RelativeToolTip": "ITI-GProject\\Controllers\\CourseController.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwBwAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-01T19:49:16.041Z",
->>>>>>> 52345f651374d362da50ce00ac922010973934e7
+              "WhenOpened": "2025-08-05T19:05:41.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\AccountController.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ITI-GProject\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T18:29:39.048Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Program.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Program.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Program.cs",
+              "RelativeToolTip": "ITI-GProject\\Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABAAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T12:28:38.559Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-<<<<<<< HEAD
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Controllers\\AccountController.cs",
-              "RelativeToolTip": "ITI-GProject\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAAAH4AAAA5AAAAAAAAAA==",
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\StudentsController.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "ITI-GProject\\Controllers\\StudentsController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwAUAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T18:12:15.313Z",
-=======
-              "Title": "CourseServicec.cs",
-              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\CourseServicec.cs",
-              "RelativeDocumentMoniker": "ITI-GProject\\Services\\CourseServicec.cs",
-              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\CourseServicec.cs*",
-              "RelativeToolTip": "ITI-GProject\\Services\\CourseServicec.cs*",
-              "ViewState": "AgIAADIAAAAAAAAAAAAcwDUAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-01T19:52:43.076Z",
->>>>>>> 52345f651374d362da50ce00ac922010973934e7
+              "WhenOpened": "2025-08-07T20:54:19.617Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
-              "DocumentIndex": 5,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Data\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\ApplicationUser.cs",
-              "ToolTip": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Data\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "ITI-GProject\\Data\\Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "StudentsService.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\StudentsService.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Services\\StudentsService.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\StudentsService.cs",
+              "RelativeToolTip": "ITI-GProject\\Services\\StudentsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T18:00:47.413Z"
+              "WhenOpened": "2025-08-07T20:58:09.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StudentDTO.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\StudentDTO.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\DTOs\\StudentDTO.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\StudentDTO.cs",
+              "RelativeToolTip": "ITI-GProject\\DTOs\\StudentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T21:00:06.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T21:01:57.464Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "IStudentsService.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\IStudentsService.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Services\\IStudentsService.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\IStudentsService.cs",
+              "RelativeToolTip": "ITI-GProject\\Services\\IStudentsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T21:25:00.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CourseDTO.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\CourseDTO.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\DTOs\\CourseDTO.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\CourseDTO.cs",
+              "RelativeToolTip": "ITI-GProject\\DTOs\\CourseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T11:00:55.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CourseProfiles.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Profiles\\CourseProfiles.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Profiles\\CourseProfiles.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Profiles\\CourseProfiles.cs",
+              "RelativeToolTip": "ITI-GProject\\Profiles\\CourseProfiles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T18:09:24.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Course.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Data\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\Course.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Data\\Models\\Course.cs",
+              "RelativeToolTip": "ITI-GProject\\Data\\Models\\Course.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAYwBUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T17:33:12.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IAttachment.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\Attachment\\IAttachment.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Services\\Attachment\\IAttachment.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\Attachment\\IAttachment.cs",
+              "RelativeToolTip": "ITI-GProject\\Services\\Attachment\\IAttachment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T17:37:19.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Attachments.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\Attachment\\Attachments.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Services\\Attachment\\Attachments.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\Attachment\\Attachments.cs",
+              "RelativeToolTip": "ITI-GProject\\Services\\Attachment\\Attachments.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA6wC0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T17:46:49.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CourseUpdateDTO.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\CourseUpdateDTO.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\DTOs\\CourseUpdateDTO.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\CourseUpdateDTO.cs",
+              "RelativeToolTip": "ITI-GProject\\DTOs\\CourseUpdateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T11:00:51.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CourseServicec.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\CourseServicec.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Services\\CourseServicec.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\CourseServicec.cs",
+              "RelativeToolTip": "ITI-GProject\\Services\\CourseServicec.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAIwHoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T19:05:48.207Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20250807184839_Add pictureUrl.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Migrations\\20250807184839_Add pictureUrl.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Migrations\\20250807184839_Add pictureUrl.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Migrations\\20250807184839_Add pictureUrl.cs",
+              "RelativeToolTip": "ITI-GProject\\Migrations\\20250807184839_Add pictureUrl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-07T18:48:40.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AssessmentController.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\AssessmentController.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\AssessmentController.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\AssessmentController.cs",
+              "RelativeToolTip": "ITI-GProject\\Controllers\\AssessmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T19:23:56.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ICourseService.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\ICourseService.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Services\\ICourseService.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Services\\ICourseService.cs",
+              "RelativeToolTip": "ITI-GProject\\Services\\ICourseService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T19:11:45.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RegisterDTO.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\RegisterDTO.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\DTOs\\RegisterDTO.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\DTOs\\RegisterDTO.cs",
+              "RelativeToolTip": "ITI-GProject\\DTOs\\RegisterDTO.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAA2wCkAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T18:29:39.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "TestController.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\TestController.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\TestController.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\TestController.cs",
+              "RelativeToolTip": "ITI-GProject\\Controllers\\TestController.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwBIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T19:31:42.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "Student.cs",
-              "DocumentMoniker": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Data\\Models\\Student.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Data\\Models\\Student.cs",
               "RelativeDocumentMoniker": "ITI-GProject\\Data\\Models\\Student.cs",
-              "ToolTip": "D:\\Very Important\\Elbasit\\ElbasitITIGrad\\GITI_POPO\\GITI_POPO\\ITI-GProject\\Data\\Models\\Student.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Data\\Models\\Student.cs",
               "RelativeToolTip": "ITI-GProject\\Data\\Models\\Student.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAswB0AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T18:00:27.912Z"
-=======
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\appsettings.json",
-              "RelativeDocumentMoniker": "ITI-GProject\\appsettings.json",
-              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\appsettings.json",
-              "RelativeToolTip": "ITI-GProject\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-01T20:43:03.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-05T18:29:39.067Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ChoiceController.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\ChoiceController.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\ChoiceController.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\ChoiceController.cs",
+              "RelativeToolTip": "ITI-GProject\\Controllers\\ChoiceController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAQwFoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T19:25:22.304Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LessonController.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\LessonController.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\LessonController.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\LessonController.cs",
+              "RelativeToolTip": "ITI-GProject\\Controllers\\LessonController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAI8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T19:28:00.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "QuestionController.cs",
+              "DocumentMoniker": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\QuestionController.cs",
+              "RelativeDocumentMoniker": "ITI-GProject\\Controllers\\QuestionController.cs",
+              "ToolTip": "G:\\Final Project\\GITI_POPO\\ITI-GProject\\Controllers\\QuestionController.cs",
+              "RelativeToolTip": "ITI-GProject\\Controllers\\QuestionController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvxgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-05T19:30:13.879Z"
             }
           ]
         },
@@ -200,7 +425,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
->>>>>>> 52345f651374d362da50ce00ac922010973934e7
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             }
           ]
         }

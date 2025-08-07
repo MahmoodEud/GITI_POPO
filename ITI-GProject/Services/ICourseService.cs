@@ -12,6 +12,7 @@ namespace ITI_GProject.Services
         Task<bool> DeleteCourseById(int id);
 
 
+        Task<CourseDTO> GetCourseByIdAsync(int CourseId);
         Task<CourseDTO> UpdateCourseAsync(int id, CourseUpdateDTO courseUpdateDTO);
     }
 }

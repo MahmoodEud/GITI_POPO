@@ -13,8 +13,12 @@
         public StudentYear Year { get; set; }
         [Required]
         [MaxLength(500)]
+
         public string Description { get; set; } = null!;
         [Required]
         public bool Status { get; set; }
+        [Required]
+        [FromForm]
+        public IFormFile PicturalUrl { get; set; } = default!;
     }
 }

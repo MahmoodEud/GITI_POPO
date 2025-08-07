@@ -1,4 +1,5 @@
 ﻿using ITI_GProject.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITI_GProject.Controllers
 {
@@ -6,7 +7,7 @@ namespace ITI_GProject.Controllers
     [Route("api/[controller]")]
     public class CourseController(ICourseService courseService ) : ControllerBase
     {
-
+        //[Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CourseDTO>>> GetAllCourses()
         {
@@ -22,6 +23,7 @@ namespace ITI_GProject.Controllers
 
         }
 
+        //[Authorize]
         [HttpGet("CourseId")]
         public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
         {
@@ -30,15 +32,16 @@ namespace ITI_GProject.Controllers
 
             if(userRole == "Admin")
             {
-                //var courseDto = await courseService.GetCourseByIdAsync(CourseId);
+                var courseDto = await courseService.GetCourseByIdAsync(CourseId);
+                return Ok(courseDto);
             }
 
             int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out int studentId);
-            var CourseDTO = await courseService.GetCourseByIdAsync( CourseId ,studentId);
             if (studentId == 0)
             {
                 return Unauthorized("Student is not logged in.");
             }
+            var CourseDTO = await courseService.GetCourseByIdAsync( CourseId ,studentId);
             if (CourseDTO is not null)
             {
                 return Ok(CourseDTO);
@@ -47,8 +50,8 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpPost]
-
-        public async Task<ActionResult<CourseDTO>> CreateCourse(CourseUpdateDTO CoursCreate)
+        //[Authorize]
+        public async Task<ActionResult<CourseDTO>> CreateCourse([FromForm] CourseUpdateDTO CoursCreate)
         {
             var CourseCreate = await courseService.CreateCourseAsync( CoursCreate);
 
@@ -62,7 +65,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpDelete("{id}")]
-
+        //[Authorize]
         public async Task<ActionResult> DeleteCourseById(int id)
         {
             var isDeleted = await courseService.DeleteCourseById(id);
@@ -74,7 +77,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpPut("id")]
-
+        //[Authorize]
         public async Task<ActionResult<CourseDTO>> UpdateCourse(int id , CourseUpdateDTO courseUpdateDTO)
         {
             var CourseUpdate = await courseService.UpdateCourseAsync(id, courseUpdateDTO);

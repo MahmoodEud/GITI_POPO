@@ -1,11 +1,13 @@
-﻿namespace ITI_GProject.Controllers
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class LessonController(AppGConetxt context, IMapper mapper) : ControllerBase
     {
 
-
+        [Authorize]
         [HttpGet("all")]
         public async Task<IActionResult> GetAllLessons([FromQuery] int? pageNumber, [FromQuery] int? pageSize)
         {
@@ -45,7 +47,7 @@
         }
 
 
-
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<LessonDTO>> GetLessonById(int id)
         {
@@ -59,6 +61,7 @@
             return Ok(lessonDTO1);
         }
         [HttpPut("{id:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateLesson(int id,LessonUpdateDto lessonDto)
         {
 
@@ -79,6 +82,7 @@
             return Ok("Lesson Updated Successfully !!!");
         }
         [HttpPut("by-title/{title}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateLessonByTitle([FromRoute] string title, [FromBody] LessonUpdateDto lessonDto)
         {
             if (!ModelState.IsValid)
@@ -98,6 +102,7 @@
         }
 
         [HttpPost("filter")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> FilterLessons([FromBody] LessonFilterDto filter)
         {
             var query = context.Lessons.AsQueryable();
@@ -119,6 +124,7 @@
 
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateLesson([FromBody] LessonUpdateDto lessonDto)
         {
             if (!ModelState.IsValid)
@@ -135,6 +141,7 @@
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteLesson(int id)
         {
             var lesson = await context.Lessons.FirstOrDefaultAsync(e => e.Id == id);

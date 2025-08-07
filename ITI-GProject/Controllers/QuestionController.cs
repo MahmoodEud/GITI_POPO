@@ -1,5 +1,6 @@
 ﻿using ITI_GProject.DTOs.QuestionsDTO;
 using ITI_GProject.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query;
@@ -21,7 +22,8 @@ namespace ITI_GProject.Controllers
 
 
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult>GetQuestion(int id)
         {
             try
@@ -37,13 +39,13 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpGet("GetByQuiz/{quizId}")]
-
+        [Authorize]
         public async Task<ActionResult>GetQuestionByQuiz(int quizId)
         {
             var question = await _questionService.GetQuestionByQuizId(quizId);
             return Ok(question);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<ActionResult<QuesDTO>>CreateQustion(QuesDTO quesDTO)
         {
@@ -62,7 +64,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpPut("{id}")]
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult>UpdateQuestion(int id, [FromBody] QuesDTO quesDTO)
         {
             try
@@ -82,7 +84,7 @@ namespace ITI_GProject.Controllers
 
 
         [HttpDelete("{id}")]
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteQuestion(int id)
         {
 
