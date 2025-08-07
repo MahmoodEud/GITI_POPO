@@ -1,6 +1,4 @@
-﻿using ITI_GProject.Services;
-
-namespace ITI_GProject.Controllers
+﻿namespace ITI_GProject.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

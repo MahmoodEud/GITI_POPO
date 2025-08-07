@@ -13,7 +13,7 @@
 
         public UserType Type { get; set; }
 
-        public virtual Student StudentProfile { get; set; }
+        public virtual Student? StudentProfile { get; set; }
 
     }
 }
