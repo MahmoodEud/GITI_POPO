@@ -7,7 +7,7 @@ namespace ITI_GProject.Controllers
     [Route("api/[controller]")]
     public class CourseController(ICourseService courseService ) : ControllerBase
     {
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CourseDTO>>> GetAllCourses()
         {
@@ -23,7 +23,7 @@ namespace ITI_GProject.Controllers
 
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("CourseId")]
         public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
         {
@@ -50,7 +50,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<CourseDTO>> CreateCourse([FromForm] CourseUpdateDTO CoursCreate)
         {
             var CourseCreate = await courseService.CreateCourseAsync( CoursCreate);
@@ -65,7 +65,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult> DeleteCourseById(int id)
         {
             var isDeleted = await courseService.DeleteCourseById(id);
@@ -77,7 +77,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpPut("id")]
-        //[Authorize]
+        [Authorize]
         public async Task<ActionResult<CourseDTO>> UpdateCourse(int id , CourseUpdateDTO courseUpdateDTO)
         {
             var CourseUpdate = await courseService.UpdateCourseAsync(id, courseUpdateDTO);
