@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 ﻿using ITI_GProject.Services;
 using Microsoft.AspNetCore.Authorization;
 
 namespace ITI_GProject.Controllers
+=======
+﻿namespace ITI_GProject.Controllers
+>>>>>>> 4809cdfe72d984826af8ef179932cbb9b048e944
 {
     [ApiController]
     [Route("api/[controller]")]

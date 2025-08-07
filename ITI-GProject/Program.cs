@@ -85,11 +85,12 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    await SeedRolesAsync(app);
-}
+await SeedRolesAsync(app);
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    await SeedRolesAsync(app);
+//}
 app.Run();
 static async Task SeedRolesAsync(WebApplication app)
 {

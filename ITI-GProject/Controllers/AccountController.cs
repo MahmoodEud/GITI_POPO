@@ -1,4 +1,7 @@
-﻿namespace ITI_GProject.Controllers
+﻿using ITI_GProject.Data.Models;
+using System.Numerics;
+
+namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -105,7 +108,9 @@
                     ModelState.AddModelError("Password", "اسم المستخدم او كلمة المرور خطأ حاول تاني ");
                     return BadRequest(ModelState);
                 }
-              bool Found=await userManager.CheckPasswordAsync(userName, loginDto.Password);
+                var student = await context.Students.FirstOrDefaultAsync(s => s.UserId == userName.Id);
+
+                bool Found =await userManager.CheckPasswordAsync(userName, loginDto.Password);
                 if (Found) 
                 {
                     List<Claim> claims = new List<Claim>();
@@ -132,7 +137,12 @@
                     {
                         token = new JwtSecurityTokenHandler().WriteToken(token),
                         expiration = DateTime.Now.AddDays(5),
-                        username = userName.UserName
+                        username = userName.UserName,
+                        name = userName.Name,
+                        phone = userName.PhoneNumber,
+                        profileImage = userName.ProfilePictureUrl,
+                        studentYear = student?.Year,
+                        parentPhoneNumber = student?.ParentNumber
 
                     });
                 }
