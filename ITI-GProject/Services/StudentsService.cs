@@ -18,7 +18,7 @@ namespace ITI_GProject.Services
                 Id = U.Id,
                 Name = U.Name,
                 PhoneNumber = U.PhoneNumber ?? "",
-                Password = U.PasswordHash ?? ""
+                Password = ""
 
 
 
@@ -42,7 +42,7 @@ namespace ITI_GProject.Services
                 Id = user.Id,
                 Name = user.Name,
                 PhoneNumber = user.PhoneNumber??"",
-                Password = user.PasswordHash??""
+                Password = ""
             };
 
         }
@@ -88,7 +88,7 @@ namespace ITI_GProject.Services
                 {
                     Id = user.Id,
                     Name = user.Name,
-                    Password = user.PasswordHash??"",
+                    Password = updateStudent.Password,
                     PhoneNumber = user.PhoneNumber
                 };
             }
