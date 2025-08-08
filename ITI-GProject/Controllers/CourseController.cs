@@ -29,7 +29,7 @@ namespace ITI_GProject.Controllers
             }
 
             [Authorize]
-            [HttpGet("CourseId")]
+            [HttpGet("{CourseId}")]
             public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
             {
 
@@ -81,7 +81,7 @@ namespace ITI_GProject.Controllers
                 return NotFound();
             }
 
-            [HttpPut("id")]
+            [HttpPut("{id}")]
             [Authorize]
             public async Task<ActionResult<CourseDTO>> UpdateCourse(int id, CourseUpdateDTO courseUpdateDTO)
             {
