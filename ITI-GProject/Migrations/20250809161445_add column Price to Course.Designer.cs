@@ -4,6 +4,7 @@ using ITI_GProject.Data.GContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITI_GProject.Migrations
 {
     [DbContext(typeof(AppGConetxt))]
-    partial class AppGConetxtModelSnapshot : ModelSnapshot
+    [Migration("20250809161445_add column Price to Course")]
+    partial class addcolumnPricetoCourse
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
