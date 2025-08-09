@@ -10,6 +10,11 @@
 
         public string Password { get; set; } = default!;
 
+        public string ParentNumber { get; set; } = default!;
+
+
+        public string StudentLevel { get; set; } = default!;
+
 
     }
 }

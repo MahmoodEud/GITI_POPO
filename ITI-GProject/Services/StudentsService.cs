@@ -18,7 +18,9 @@ namespace ITI_GProject.Services
                 Id = U.Id,
                 Name = U.Name,
                 PhoneNumber = U.PhoneNumber ?? "",
-                Password = ""
+                Password = "",
+                StudentLevel = U.StudentProfile.Year.ToString()?? "",
+                ParentNumber = U.StudentProfile.ParentNumber
 
 
 
@@ -41,8 +43,10 @@ namespace ITI_GProject.Services
             {
                 Id = user.Id,
                 Name = user.Name,
-                PhoneNumber = user.PhoneNumber??"",
-                Password = ""
+                PhoneNumber = user.PhoneNumber ?? "",
+                Password = "",
+                StudentLevel = user.StudentProfile?.Year.ToString() ?? "",
+                ParentNumber = user.StudentProfile?.ParentNumber ?? ""
             };
 
         }
