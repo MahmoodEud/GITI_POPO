@@ -23,7 +23,7 @@ namespace ITI_GProject.Controllers
 
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<ActionResult>GetQuestion(int id)
         {
             try

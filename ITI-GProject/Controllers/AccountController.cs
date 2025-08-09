@@ -142,7 +142,8 @@ namespace ITI_GProject.Controllers
                         phone = userName.PhoneNumber,
                         profileImage = userName.ProfilePictureUrl,
                         studentYear = student?.Year,
-                        parentPhoneNumber = student?.ParentNumber
+                        parentPhoneNumber = student?.ParentNumber,
+                        role = roles?.FirstOrDefault()
 
                     });
                 }
