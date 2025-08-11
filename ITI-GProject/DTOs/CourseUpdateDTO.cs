@@ -19,8 +19,7 @@
         public string Description { get; set; } = null!;
         [Required]
         public bool Status { get; set; }
-        [Required]
         [FromForm]
-        public IFormFile PicturalUrl { get; set; } = default!;
+        public IFormFile? PicturalUrl { get; set; }   
     }
 }

@@ -7,49 +7,6 @@ namespace ITI_GProject.Services
 {
     public class CourseServices(AppGConetxt _context, IMapper _mapper , IAttachment attachment) : ICourseService
     {
-        public async Task<CourseDTO> CreateCourseAsync([FromForm] CourseUpdateDTO courseUpdateDTO)
-        {
-            if (courseUpdateDTO == null)
-                return null!;
-
-            var course = _mapper.Map<CourseUpdateDTO, Course>(courseUpdateDTO);
-
-            
-            if (courseUpdateDTO.PicturalUrl != null && courseUpdateDTO.PicturalUrl.Length > 0)
-            {
-                var uploadedPath = attachment.Uplaod(courseUpdateDTO.PicturalUrl, "Image");
-                course.PicturalUrl = uploadedPath ?? "";  
-            }
-            else
-            {
-               course.PicturalUrl = "default.jpg"; 
-            }
-
-            await _context.Courses.AddAsync(course);
-            int res = await _context.SaveChangesAsync();
-
-            if (res > 0)
-            {
-                var courseDto = _mapper.Map<Course, CourseDTO>(course);
-                return courseDto;
-            }
-
-            return null!;
-        }
-
-
-        public async Task<bool> DeleteCourseById(int id)
-        {
-            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
-
-            if (course == null)
-            {
-                return false;
-            }
-            _context.Courses.Remove(course);
-            return await _context.SaveChangesAsync() > 0;
-        }
-
         public async Task<IEnumerable<CourseDTO>> GetAllCoursesAsync()
         {
             var Coursers = await _context.Courses.ToListAsync();
@@ -93,6 +50,49 @@ namespace ITI_GProject.Services
             return courseDTO;
         }
 
+        public async Task<CourseDTO> CreateCourseAsync([FromForm] CourseUpdateDTO courseUpdateDTO)
+        {
+            if (courseUpdateDTO == null)
+                return null!;
+
+            var course = _mapper.Map<CourseUpdateDTO, Course>(courseUpdateDTO);
+
+            
+            if (courseUpdateDTO.PicturalUrl != null && courseUpdateDTO.PicturalUrl.Length > 0)
+            {
+                var uploadedPath = attachment.Uplaod(courseUpdateDTO.PicturalUrl, "Image");
+                course.PicturalUrl = uploadedPath ?? "";  
+            }
+            else
+            {
+               course.PicturalUrl = "default.jpg"; 
+            }
+
+            await _context.Courses.AddAsync(course);
+            int res = await _context.SaveChangesAsync();
+
+            if (res > 0)
+            {
+                var courseDto = _mapper.Map<Course, CourseDTO>(course);
+                return courseDto;
+            }
+
+            return null!;
+        }
+
+        public async Task<bool> DeleteCourseById(int id)
+        {
+            var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
+
+            if (course == null)
+            {
+                return false;
+            }
+            _context.Courses.Remove(course);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+
         public async Task<CourseDTO> UpdateCourseAsync(int id, CourseUpdateDTO courseUpdateDTO)
         {
             var course = await _context.Courses.FirstOrDefaultAsync(c => c.Id == id);
@@ -112,6 +112,7 @@ namespace ITI_GProject.Services
             course.Category = courseUpdateDTO.Category;
             course.Year = courseUpdateDTO.Year;
             course.Status = courseUpdateDTO.Status;
+            course.Price = courseUpdateDTO.Price;
 
 
 

@@ -1,9 +1,4 @@
-
-﻿using ITI_GProject.Services;
 using Microsoft.AspNetCore.Authorization;
-
-namespace ITI_GProject.Controllers
-{
 
     namespace ITI_GProject.Controllers
 
@@ -12,8 +7,8 @@ namespace ITI_GProject.Controllers
         [Route("api/[controller]")]
         public class CourseController(ICourseService courseService) : ControllerBase
         {
-            [Authorize]
-            [HttpGet]
+        [Authorize]
+        [HttpGet]
             public async Task<ActionResult<IEnumerable<CourseDTO>>> GetAllCourses()
             {
                 var Courses = await courseService.GetAllCoursesAsync();
@@ -28,8 +23,8 @@ namespace ITI_GProject.Controllers
 
             }
 
-            [Authorize]
-            [HttpGet("{CourseId}")]
+            //[Authorize]
+            [HttpGet("{CourseId:int}")]
             public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
             {
 
@@ -38,6 +33,7 @@ namespace ITI_GProject.Controllers
                 if (userRole == "Admin")
                 {
                     var courseDto = await courseService.GetCourseByIdAsync(CourseId);
+                    if (courseDto is null) return NotFound("Not Course Found");
                     return Ok(courseDto);
                 }
 
@@ -55,45 +51,39 @@ namespace ITI_GProject.Controllers
             }
 
             [HttpPost]
-            [Authorize]
-            public async Task<ActionResult<CourseDTO>> CreateCourse([FromForm] CourseUpdateDTO CoursCreate)
-            {
-                var CourseCreate = await courseService.CreateCourseAsync(CoursCreate);
-
-                if (CoursCreate is null)
+            //[Authorize(Roles = "Admin")]
+            public async Task<ActionResult<CourseDTO>> CreateCourse([FromForm] CourseUpdateDTO dto)
                 {
-                    return BadRequest();
+                    if (!ModelState.IsValid) return BadRequest(ModelState);
+
+                    var created = await courseService.CreateCourseAsync(dto);
+                    if (created is null) return BadRequest("Validation failed");
+
+                    return CreatedAtAction(nameof(GetCourseById), new { CourseId = created.Id }, created);
                 }
 
-                return Ok(CoursCreate);
-
-            }
 
             [HttpDelete("{id}")]
-            [Authorize]
+            //[Authorize(Roles = "Admin")]
             public async Task<ActionResult> DeleteCourseById(int id)
-            {
-                var isDeleted = await courseService.DeleteCourseById(id);
-                if (isDeleted)
                 {
-                    return Ok($"Course With Id{id} Id Deleted");
-                }
-                return NotFound();
-            }
-
-            [HttpPut("{id}")]
-            [Authorize]
-            public async Task<ActionResult<CourseDTO>> UpdateCourse(int id, CourseUpdateDTO courseUpdateDTO)
-            {
-                var CourseUpdate = await courseService.UpdateCourseAsync(id, courseUpdateDTO);
-
-                if (CourseUpdate is null)
-                {
-                    return BadRequest();
+                    var isDeleted = await courseService.DeleteCourseById(id);
+                    if (isDeleted)
+                    {
+                        return Ok($"Course With Id{id} Id Deleted");
+                    }
+                    return NotFound();
                 }
 
-                return Ok(CourseUpdate);
+            [HttpPut("{id:int}")]
+            //[Authorize(Roles = "Admin")] 
+            public async Task<ActionResult<CourseDTO>> UpdateCourse(int id, [FromForm] CourseUpdateDTO dto)
+            {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
+                var updated = await courseService.UpdateCourseAsync(id, dto);
+                if (updated is null) return NotFound("Not Course Found");
+                return Ok(updated);
             }
         }
-    }
 }
+    

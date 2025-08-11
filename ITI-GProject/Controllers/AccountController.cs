@@ -137,11 +137,12 @@ namespace ITI_GProject.Controllers
                     {
                         token = new JwtSecurityTokenHandler().WriteToken(token),
                         expiration = DateTime.Now.AddDays(5),
+                        id = userName.Id,
                         username = userName.UserName,
                         name = userName.Name,
                         phone = userName.PhoneNumber,
                         profileImage = userName.ProfilePictureUrl,
-                        studentYear = student?.Year,
+                        studentYear = student?.Year.ToString(),
                         parentPhoneNumber = student?.ParentNumber,
                         role = roles?.FirstOrDefault()
 
@@ -155,7 +156,14 @@ namespace ITI_GProject.Controllers
 
         }
 
-
+        [HttpGet("roles")]
+        public IActionResult GetRoles()
+        {
+            var roles = roleManager.Roles
+                                    .Select(r => r.Name)
+                                    .ToList();
+            return Ok(roles);
+        }
         [HttpPost("AssignRole")]
         public async Task<IActionResult> AssignRole(string userName, string role)
         {

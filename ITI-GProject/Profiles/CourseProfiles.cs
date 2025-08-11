@@ -5,7 +5,9 @@
         public CourseProfiles()
         {
             CreateMap<Course, CourseDTO>().ReverseMap();
-            CreateMap<CourseUpdateDTO, Course>().ReverseMap();
+
+            CreateMap<CourseUpdateDTO, Course>()
+                .ForMember(d => d.PicturalUrl, opt => opt.Ignore());
             // Lessons
             CreateMap<Lesson, LessonDTO>().ReverseMap();
             CreateMap<LessonUpdateDto, Lesson>().ReverseMap();

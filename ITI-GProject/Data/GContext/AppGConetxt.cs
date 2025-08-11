@@ -108,9 +108,10 @@ namespace ITI_GProject.Data.GContext
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<ApplicationUser>()
-    .HasOne(u => u.StudentProfile)
-    .WithOne(s => s.User)
-    .HasForeignKey<Student>(s => s.UserId);
+            .HasOne(u => u.StudentProfile)
+            .WithOne(s => s.User)
+            .HasForeignKey<Student>(s => s.UserId)
+             .OnDelete(DeleteBehavior.Cascade);
 
         }
 
