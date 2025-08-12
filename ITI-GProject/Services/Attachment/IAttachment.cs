@@ -2,7 +2,7 @@
 {
     public interface IAttachment
     {
-        bool Delete(string FilePath);
-        string Uplaod(IFormFile formFile, string folderName);
+        public Task<bool> DeleteAsync(string webPath);
+        Task<string> UploadAsync(IFormFile formFile, string folderName);
     }
 }

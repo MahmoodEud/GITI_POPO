@@ -4,14 +4,15 @@
     {
         [Required]
         [MaxLength(500)]
-        public string Title { get; set; } = null!;
+        public string title { get; set; } = null!;
         [Required]
         [Display(Name = "Video")]
         [DataType(DataType.Url)]
-        public string Video_URL { get; set; } = null!;
+        public string videoUrl { get; set; } = null!;
         [DataType(DataType.Url)]
-        public string? AbstructVideo { get; set; } = null!;
+        public string? previewVideoUrl { get; set; } = null!;
         [Required]
-        public string PDF { get; set; } = null!;
+        public string pdfUrl { get; set; } = null!;
+        [Required] public int courseId { get; set; }
     }
 }

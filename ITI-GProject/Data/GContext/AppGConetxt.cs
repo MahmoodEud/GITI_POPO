@@ -21,6 +21,16 @@ namespace ITI_GProject.Data.GContext
         public DbSet<StudentResponse> StudentResponses { get; set; }
         public DbSet<Choice> Choices { get; set; }
 
+        // UpdatedAt 
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            foreach (var entry in ChangeTracker.Entries<Course>())
+                if (entry.State == EntityState.Modified)
+                    entry.Entity.UpdatedAt = DateTime.UtcNow;
+
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
         //Entities Configurations 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

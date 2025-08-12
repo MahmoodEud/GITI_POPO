@@ -1,13 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ITI_GProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentsController(IStudentsService studentsService) : Controller
+    public class StudentsController(IStudentsService studentsService) : ControllerBase
     {
-        [Authorize(Roles ="Admin")]
+        //[Authorize(Roles ="Admin")]
         [HttpGet]
         public async Task<ActionResult<PagedResult<StudentDTO>>> GetAllStudent(StudentYear? year, [FromQuery] string? roleFilter, int pageNumber = 1, int pageSize = 50)
         {

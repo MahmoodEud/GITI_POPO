@@ -3,46 +3,48 @@ namespace ITI_GProject.Services.Attachment
 {
     public class Attachments : IAttachment
     {
+        private readonly IWebHostEnvironment _env;
+
+        public Attachments(IWebHostEnvironment env)
+        {
+            _env = env;
+        }
+
         List<string> AllowExtentions = [".jpg", ".jpeg",".png"];
 
         int maxSize = 2 * 1024 * 1024;
-        public bool Delete(string FilePath)
+        public Task<bool> DeleteAsync(string webPath)
         {
-            if(FilePath is null|| !File.Exists(FilePath)) return false;
+            if (string.IsNullOrWhiteSpace(webPath)) return Task.FromResult(false);
 
-            try
-            {
-                File.Delete(FilePath);
-                return true;
-            }
-            catch
-            { 
-                return false;
-            }
+            var relative = webPath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar);
+            var physical = Path.Combine(_env.WebRootPath, relative);
+
+            if (!File.Exists(physical)) return Task.FromResult(false);
+
+            try { File.Delete(physical); return Task.FromResult(true); }
+            catch { return Task.FromResult(false); }
         }
 
-        public string? Uplaod(IFormFile file, string FolderName)
+        public async Task<string?> UploadAsync(IFormFile file, string folderName)
         {
-            var extansion = Path.GetExtension(file.FileName).ToLower();
+            var ext = Path.GetExtension(file.FileName).ToLower();
 
-            if(!AllowExtentions.Contains(extansion))
-            {
-                return null;
-            }
-            if(file.Length > maxSize || file.Length == 0)
-            {
-                return null;
-            }
+            if (!AllowExtentions.Contains(ext)) return null;
+            if (file.Length > maxSize || file.Length == 0) return null;
 
-            var folderName = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Files",FolderName);
-            var fileName = $"{Guid.NewGuid()}_{file.FileName}";
-            var filePath = Path.Combine(folderName, fileName);
+            var folderPath = Path.Combine(_env.WebRootPath, "Files", folderName);
+            Directory.CreateDirectory(folderPath); 
 
-            using FileStream fileStream = new FileStream(filePath, FileMode.Create);
+            var fileName = $"{Guid.NewGuid()}{ext}";
+            var filePath = Path.Combine(folderPath, fileName);
 
-            file.CopyTo(fileStream);
+            using var fileStream = new FileStream(filePath, FileMode.Create);
+            await file.CopyToAsync(fileStream);
 
-            return fileName;
+            return $"/Files/{folderName}/{fileName}";
         }
+
+   
     }
 }

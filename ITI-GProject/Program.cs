@@ -26,6 +26,8 @@ builder.Services.AddScoped<IChoice, ChoiceService>();
 builder.Services.AddScoped<ICourseService, CourseServices>();
 builder.Services.AddScoped<IAttachment, Attachments>();
 builder.Services.AddScoped<IStudentsService, StudentsService>();
+builder.Services.AddScoped<IStudentCoursesService, StudentCoursesService>();
+
 builder.Services.AddDbContext<AppGConetxt>(options => options.UseSqlServer(builder
     .Configuration.GetConnectionString("GConnection")));
 

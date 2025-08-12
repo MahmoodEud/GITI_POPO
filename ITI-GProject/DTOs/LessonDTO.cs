@@ -3,15 +3,17 @@
     public class LessonDTO
     {
         public int Id { get; set; }
-        [Required]
-        [MaxLength(500)]
-        public string? Title { get; set; }
-        [Required]
-        [Display(Name ="Video")]
+
+        [Required, MaxLength(150)]
+        public string Title { get; set; } = null!;
+
         [DataType(DataType.Url)]
-        public string? Video_URL { get; set; }
-        [DataType(DataType.Url)]
-        public string? AbstructVideo { get; set; }
-        public string? PDF { get; set; }
+        [Required, Display(Name = "Video")]
+        public string VideoUrl { get; set; } = null!;
+        public string? PreviewVideoUrl { get; set; }
+        public string PdfUrl { get; set; } = null!;
+
+        [Required] public int courseId { get; set; }
+
     }
-}
+    }

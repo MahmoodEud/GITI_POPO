@@ -69,7 +69,7 @@ namespace ITI_GProject.Controllers
             {
                 return BadRequest(ModelState);
             }
-            bool exists = await context.Lessons.AnyAsync(l => l.Title == lessonDto.Title && l.Id != id);
+            bool exists = await context.Lessons.AnyAsync(l => l.Title == lessonDto.title && l.Id != id);
             if (exists)
                 return BadRequest("لا يمكن استخدام هذا العنوان لأنه موجود بالفعل حاول تغييره.");
             var lesson = await context.Lessons.FindAsync(id);
@@ -92,7 +92,7 @@ namespace ITI_GProject.Controllers
             if (lesson == null)
                 return NotFound("Lesson not found.");
 
-            bool exists = await context.Lessons.AnyAsync(l => l.Title == lessonDto.Title && l.Id != lesson.Id);
+            bool exists = await context.Lessons.AnyAsync(l => l.Title == lessonDto.title && l.Id != lesson.Id);
             if (exists)
                 return BadRequest("لا يمكن استخدام هذا العنوان لأنه موجود بالفعل حاول تغييره.");
 
@@ -130,7 +130,7 @@ namespace ITI_GProject.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             bool exists = await context.Lessons
-                .AnyAsync(l => l.Title.ToLower() == lessonDto.Title.ToLower());
+                .AnyAsync(l => l.Title.ToLower() == lessonDto.title.ToLower());
             if (exists)
                 return BadRequest("هذا العنوان مستخدم بالفعل حاول تغييره.");
             var lesson = mapper.Map<Lesson>(lessonDto);

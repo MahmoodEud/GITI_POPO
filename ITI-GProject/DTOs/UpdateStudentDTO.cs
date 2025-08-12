@@ -2,7 +2,6 @@
 {
     public class UpdateStudentDTO
     {
-
         public string Name { get; set; } = default!;
         public string? UserName { get; set; }
         public StudentYear Year { get; set; }
