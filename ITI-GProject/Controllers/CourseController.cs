@@ -5,25 +5,45 @@ namespace ITI_GProject.Controllers
     {
         [ApiController]
         [Route("api/[controller]")]
-        public class CourseController(ICourseService courseService, IStudentCoursesService studentCoursesService) : ControllerBase
+        public class CourseController(ICourseService courseService, IStudentCoursesService studentCoursesService,AppGConetxt ctx) : ControllerBase
         {
 
-        //[Authorize]
+        [Authorize(Roles = "Student,Assistance,Admin")]
         [HttpGet]
         public async Task<ActionResult<PagedResult<CourseDTO>>> GetAllCourses(
             [FromQuery] string? search,
             [FromQuery] CourseStatus? status,
             [FromQuery] string? category,
-            [FromQuery] string? level,
+            [FromQuery] StudentYear? year,
             [FromQuery] int page = 1,
             [FromQuery] int pageSize = 20)
-        {
-            var result = await courseService.GetAllCoursesAsync(search, status, category, page, pageSize);
-            return Ok(result);
 
+        {
+
+            if (User.IsInRole("Student"))
+            {
+                var userGuid = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var myYear = await ctx.Students.AsNoTracking()
+                     .Where(s => s.UserId == userGuid)
+                     .Select(s => (StudentYear?)s.Year)
+                     .FirstOrDefaultAsync();
+
+
+                if (!myYear.HasValue)
+                    return Forbid("?? ???? ??? ?????? ?????? ??????.");
+
+                year = myYear;
+            }
+
+            var result = await courseService.GetAllCoursesAsync(
+                search, status, category, year, page, pageSize);
+
+            return Ok(result);
         }
 
-            //[Authorize]
+
+
+        [Authorize(Roles = "Student,Assistance,Admin")]
         [HttpGet("{CourseId:int}")]
         public async Task<ActionResult<CourseDTO>> GetCourseById(int CourseId)
             {
@@ -32,7 +52,7 @@ namespace ITI_GProject.Controllers
             }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<CourseDTO>> CreateCourse([FromForm] CourseUpdateDTO dto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -45,19 +65,18 @@ namespace ITI_GProject.Controllers
 
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> DeleteCourseById(int id)
         {
             var isDeleted = await courseService.DeleteCourseById(id);
             if (isDeleted)
             {
-                return Ok($"Course With Id{id} Id Deleted");
+                return Ok(new { message = $"Course With Id {id} Deleted" });
             }
-            return NotFound();
+            return NotFound(new { message = $"Course with Id {id} not found" });
         }
-
         [HttpPut("{id:int}")]
-        //[Authorize(Roles = "Admin")] 
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<CourseDTO>> UpdateCourse(int id, [FromForm] CourseUpdateDTO dto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);

@@ -1,9 +1,4 @@
 ﻿
-using AutoMapper.QueryableExtensions;
-using ITI_GProject.Services.Attachment;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.Extensions.Logging.Abstractions;
-
 namespace ITI_GProject.Services
 {
     public class CourseServices(AppGConetxt _context, IMapper _mapper, IAttachment attachment) : ICourseService
@@ -12,6 +7,7 @@ namespace ITI_GProject.Services
             string? search = null,
             CourseStatus? status = null,
             string? category = null,
+            StudentYear? year = null,   
             int page = 1,
             int pageSize = 20)
         {
@@ -23,12 +19,18 @@ namespace ITI_GProject.Services
             if (!string.IsNullOrWhiteSpace(search))
             {
                 var s = search.Trim().ToLower();
-                query = query.Where(c => c.Title.ToLower().Contains(s));
+                query = query.Where(c => EF.Functions.Like(c.Title, $"%{s}%"));
             }
 
             if (status.HasValue) query = query.Where(c => c.Status == status.Value);
+            if (year.HasValue)
+                query = query.Where(c => c.Year == year.Value);
 
-            if (!string.IsNullOrWhiteSpace(category)) query = query.Where(c => c.Category == category);
+            if (!string.IsNullOrWhiteSpace(category))
+            {
+                var cat = category.Trim();
+                query = query.Where(c => c.Category == cat);
+            }
 
             query = query.OrderByDescending(c => c.UpdatedAt);
 
@@ -38,7 +40,7 @@ namespace ITI_GProject.Services
             var items = await query
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
-            .ProjectTo<CourseDTO>(_mapper.ConfigurationProvider) // أو Map بعد ToListAsync
+            .ProjectTo<CourseDTO>(_mapper.ConfigurationProvider) 
             .ToListAsync();
 
 
@@ -46,7 +48,8 @@ namespace ITI_GProject.Services
             {
                 Items = items,
                 TotalCount = totalCount,
-                TotalPages = totalPages
+                TotalPages = totalPages,
+                Page = page 
             };
 
 
@@ -68,22 +71,27 @@ namespace ITI_GProject.Services
             if (courseUpdateDTO == null)
                 return null!;
             if (courseUpdateDTO.Price < 0) return null;
+            Console.WriteLine($"Received DTO: Title={courseUpdateDTO.Title}, ImageFile={(courseUpdateDTO.PicturalUrl != null ? courseUpdateDTO.PicturalUrl.FileName : "null")}");
 
             //var course = _mapper.Map<CourseUpdateDTO, Course>(courseUpdateDTO);
             var course = _mapper.Map<Course>(courseUpdateDTO);
             course.Status = CourseStatus.Draft;
             course.CreatedAt = DateTime.UtcNow;
             course.UpdatedAt = DateTime.UtcNow;
-            course.PicturalUrl = "default.jpg";
+            course.PicturalUrl = "default.png";
             if (courseUpdateDTO.PicturalUrl is not null && courseUpdateDTO.PicturalUrl.Length > 0)
             {
                 var uploadedPath = await attachment.UploadAsync(courseUpdateDTO.PicturalUrl, "courses");
                 if (!string.IsNullOrWhiteSpace(uploadedPath))
                     course.PicturalUrl = uploadedPath ?? "";
+                Console.WriteLine($"Image uploaded: {uploadedPath}");
+
             }
             else
             {
-                course.PicturalUrl = "default.jpg";
+                course.PicturalUrl = "Files/default.png";
+                Console.WriteLine("Image upload failed, using default");
+
             }
 
             await _context.Courses.AddAsync(course);
@@ -120,7 +128,7 @@ namespace ITI_GProject.Services
 
             if (dto.PicturalUrl is not null && dto.PicturalUrl.Length > 0)
             {
-                if (!string.IsNullOrWhiteSpace(course.PicturalUrl) && !course.PicturalUrl.Contains("default.jpg"))
+                if (!string.IsNullOrWhiteSpace(course.PicturalUrl) && !course.PicturalUrl.Contains("default.png"))
                     await attachment.DeleteAsync(course.PicturalUrl);
 
                 var uploadedPath = await attachment.UploadAsync(dto.PicturalUrl, "courses");
@@ -194,6 +202,6 @@ namespace ITI_GProject.Services
             };
         }
 
-
+      
     }
 }

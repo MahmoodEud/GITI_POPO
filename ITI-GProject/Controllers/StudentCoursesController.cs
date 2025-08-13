@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 [Route("api/student-courses")]
 [ApiController]
 [Authorize(Roles = "Student,Admin,Assistant")]
@@ -35,9 +36,9 @@ public class StudentCoursesController : ControllerBase
         return result switch
         {
             EnrollResult.Success => Ok("تمام التسجيل في الكورس المجاني نجح"),
-            EnrollResult.AlreadyEnrolled => BadRequest("أنت مسجل بالفعل"),
+            EnrollResult.AlreadyEnrolled => BadRequest("أنت مشترك بالفعل"),
             EnrollResult.CourseNotFound => NotFound("الكورس غير موجود"),
-            EnrollResult.PaidNotAllowed => Forbid("لا يمكنك الاشتراك في كورس مدفوع. تواصل مع الأدمن."),
+            EnrollResult.PaidNotAllowed => Ok("لا يمكنك الاشتراك في كورس مدفوع. تواصل مع الأدمن."),
             _ => BadRequest()
         };
     }
@@ -64,7 +65,6 @@ public class StudentCoursesController : ControllerBase
     }
     //content in Course
     [HttpGet("{courseId:int}/lesson")]
-    // مفيش Authorize هنا؛ السماح/المنع بيحصل داخل CanAccessContentAsync
     public async Task<IActionResult> GetContent(int courseId, [FromServices] ICourseService courseService)
     {
         var studentId = await GetStudentIdAsync();

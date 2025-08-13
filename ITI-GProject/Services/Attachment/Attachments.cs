@@ -42,7 +42,7 @@ namespace ITI_GProject.Services.Attachment
             using var fileStream = new FileStream(filePath, FileMode.Create);
             await file.CopyToAsync(fileStream);
 
-            return $"/Files/{folderName}/{fileName}";
+            return $"Files/{folderName}/{fileName}";
         }
 
    

@@ -20,7 +20,7 @@ namespace ITI_GProject.Data.GContext
         public DbSet<StudentAttempts> StudentAttempts { get; set; }
         public DbSet<StudentResponse> StudentResponses { get; set; }
         public DbSet<Choice> Choices { get; set; }
-
+        public DbSet<StudentLessonProgress> StudentLessonProgresses { get; set; }
         // UpdatedAt 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
@@ -52,6 +52,11 @@ namespace ITI_GProject.Data.GContext
                 .HasOne(l => l.Course)
                 .WithMany(c => c.Lessons)
                 .HasForeignKey(l => l.CourseId);
+            //Student Progress 
+
+            modelBuilder.Entity<StudentLessonProgress>()
+                .HasIndex(p => new { p.StudentId, p.LessonId })
+                .IsUnique();
 
             // Assessment -> Lesson
             modelBuilder.Entity<Assessments>()

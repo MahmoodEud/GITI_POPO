@@ -21,3 +21,5 @@ global using System.Data;
 global using ITI_GProject.DTOs.AssessmentDTO;
 global using ITI_GProject.DTOs.QuestionsDTO;
 global using ITI_GProject.Services;
+global using AutoMapper.QueryableExtensions;
+global using ITI_GProject.Services.Attachment;

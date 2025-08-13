@@ -20,6 +20,8 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAssessments, AssessmentService>();
+builder.Services.AddScoped<IProgressService, ProgressService>();
+
 builder.Services.AddAutoMapper(typeof(QuestionProfile));
 builder.Services.AddScoped<IQuestion, QuestionService>();
 builder.Services.AddScoped<IChoice, ChoiceService>();

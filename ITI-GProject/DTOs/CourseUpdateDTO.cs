@@ -7,7 +7,6 @@
         [Required] public StudentYear Year { get; set; }
         [Required] public decimal Price { get; set; }
         [Required, MaxLength(500)] public string Description { get; set; } = null!;
-        //public string? Level { get; set; }
         public bool IsAvailable { get; set; } = false;
         [FromForm] public IFormFile? PicturalUrl { get; set; }
     }
