@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace ITI_GProject.Controllers
 
@@ -89,10 +89,20 @@ namespace ITI_GProject.Controllers
         public async Task<IActionResult> GetStats() => Ok(await courseService.GetStatsAsync());
 
         [HttpGet("{id:int}/content")]
-        public async Task<IActionResult> GetContent(int id)
+        public async Task<IActionResult> GetContent(int id, [FromQuery] int? studentId)
         {
-            int? studentId = int.TryParse(User.FindFirstValue(ClaimTypes.NameIdentifier), out var sid)
-                ? sid : (int?)null;
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Console.WriteLine($"userId from token: {userId}, query studentId: {studentId}");
+
+            // لو studentId مش جاي من query، نجيبه من جدول Students بناءً على userId
+            if (!studentId.HasValue && !string.IsNullOrWhiteSpace(userId))
+            {
+                var student = await ctx.Students
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(s => s.UserId == userId);
+                studentId = student?.Id;
+                Console.WriteLine($"Fetched studentId from Students: {studentId}");
+            }
 
             var can = await studentCoursesService.CanAccessContentAsync(id, studentId, User);
             if (!can)
@@ -101,7 +111,6 @@ namespace ITI_GProject.Controllers
             var content = await courseService.GetCourseContentAsync(id);
             return content is null ? NotFound() : Ok(content);
         }
-
 
     }
 }
