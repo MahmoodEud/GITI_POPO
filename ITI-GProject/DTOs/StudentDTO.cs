@@ -3,6 +3,7 @@
     public class StudentDTO
     {
         public string Id { get; set; } = default!;
+        public int StudentId { get; set; }
         public string Name { get; set; } = default!;
         public string? UserName { get; set; }
         public StudentYear Year { get; set; }

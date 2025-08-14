@@ -1,8 +1,4 @@
-﻿
-using AutoMapper.QueryableExtensions;
-using Microsoft.EntityFrameworkCore;
-
-namespace ITI_GProject.Services
+﻿namespace ITI_GProject.Services
 {
     public class StudentCoursesService : IStudentCoursesService
     {

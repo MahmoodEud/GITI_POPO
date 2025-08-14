@@ -45,6 +45,7 @@ namespace ITI_GProject.Services
                 studentDtos.Add(new StudentDTO
                 {
                     Id = user.Id,
+                    StudentId = user.StudentProfile?.Id ?? 0,
                     Name = user.Name,
                     UserName = user.UserName,
                     PhoneNumber = user.PhoneNumber ?? string.Empty,
@@ -77,6 +78,7 @@ namespace ITI_GProject.Services
             return new StudentDTO()
             {
                 Id = user.Id,
+                StudentId = user.StudentProfile?.Id ?? 0,
                 Name = user.Name,
                 UserName = user.UserName,
                 PhoneNumber = user.PhoneNumber ?? string.Empty,
