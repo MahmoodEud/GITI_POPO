@@ -7,7 +7,7 @@ namespace ITI_GProject.Controllers
     public class LessonController(AppGConetxt context, IMapper mapper) : ControllerBase
     {
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("all")]
         public async Task<IActionResult> GetAllLessons([FromQuery] int? pageNumber, [FromQuery] int? pageSize)
         {
@@ -47,7 +47,7 @@ namespace ITI_GProject.Controllers
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<LessonDTO>> GetLessonById(int id)
         {
@@ -61,7 +61,7 @@ namespace ITI_GProject.Controllers
             return Ok(lessonDTO1);
         }
         [HttpPut("{id:int}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateLesson(int id,LessonUpdateDto lessonDto)
         {
 
@@ -82,7 +82,7 @@ namespace ITI_GProject.Controllers
             return Ok("Lesson Updated Successfully !!!");
         }
         [HttpPut("by-title/{title}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateLessonByTitle([FromRoute] string title, [FromBody] LessonUpdateDto lessonDto)
         {
             if (!ModelState.IsValid)
@@ -102,7 +102,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpPost("filter")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> FilterLessons([FromBody] LessonFilterDto filter)
         {
             var query = context.Lessons.AsQueryable();
@@ -124,7 +124,7 @@ namespace ITI_GProject.Controllers
 
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateLesson([FromBody] LessonUpdateDto lessonDto)
         {
             if (!ModelState.IsValid)
@@ -141,7 +141,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteLesson(int id)
         {
             var lesson = await context.Lessons.FirstOrDefaultAsync(e => e.Id == id);

@@ -114,7 +114,7 @@ namespace ITI_GProject.Migrations
                     b.Property<int?>("LessonId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Max_Attempts")
+                    b.Property<int?>("Max_Attempts")
                         .HasColumnType("int");
 
                     b.Property<int>("Passing_Score")
@@ -123,7 +123,7 @@ namespace ITI_GProject.Migrations
                     b.Property<DateTime>("Starting_At")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Time_Limit")
+                    b.Property<int?>("Time_Limit")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -339,7 +339,10 @@ namespace ITI_GProject.Migrations
                     b.Property<int>("AssessmentId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AttemptsNumber")
+                    b.Property<int>("AttemptsNumber")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Score")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartedAt")
@@ -351,7 +354,7 @@ namespace ITI_GProject.Migrations
                     b.Property<int?>("StudentId1")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("SubmittedAt")
+                    b.Property<DateTime?>("SubmittedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -424,7 +427,41 @@ namespace ITI_GProject.Migrations
                     b.HasIndex("StudentId", "LessonId")
                         .IsUnique();
 
-                    b.ToTable("StudentLessonProgress");
+                    b.ToTable("StudentLessonProgresses");
+                });
+
+            modelBuilder.Entity("ITI_GProject.Data.Models.StudentResponse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AttemptId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ChoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsCorrect")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AttemptId");
+
+                    b.HasIndex("ChoiceId");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("AttemptId", "QuestionId")
+                        .IsUnique();
+
+                    b.ToTable("StudentResponses");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -560,45 +597,12 @@ namespace ITI_GProject.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("StudentResponse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AssessmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("AttemptId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ChoiceId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsCorrect")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AttemptId");
-
-                    b.HasIndex("ChoiceId");
-
-                    b.HasIndex("QuestionId");
-
-                    b.ToTable("StudentResponses");
-                });
-
             modelBuilder.Entity("ITI_GProject.Data.Models.Assessments", b =>
                 {
                     b.HasOne("ITI_GProject.Data.Models.Lesson", "Lesson")
                         .WithMany("Quizzes")
-                        .HasForeignKey("LessonId");
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Lesson");
                 });
@@ -708,6 +712,33 @@ namespace ITI_GProject.Migrations
                     b.Navigation("Student");
                 });
 
+            modelBuilder.Entity("ITI_GProject.Data.Models.StudentResponse", b =>
+                {
+                    b.HasOne("ITI_GProject.Data.Models.StudentAttempts", "Attempt")
+                        .WithMany("StudentResponses")
+                        .HasForeignKey("AttemptId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITI_GProject.Data.Models.Choice", "Choice")
+                        .WithMany()
+                        .HasForeignKey("ChoiceId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("ITI_GProject.Data.Models.Question", "Question")
+                        .WithMany("StudentResponses")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Attempt");
+
+                    b.Navigation("Choice");
+
+                    b.Navigation("Question");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -757,33 +788,6 @@ namespace ITI_GProject.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("StudentResponse", b =>
-                {
-                    b.HasOne("ITI_GProject.Data.Models.StudentAttempts", "StudentAttempt")
-                        .WithMany("StudentResponses")
-                        .HasForeignKey("AttemptId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("ITI_GProject.Data.Models.Choice", "SelectedChoice")
-                        .WithMany()
-                        .HasForeignKey("ChoiceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ITI_GProject.Data.Models.Question", "Question")
-                        .WithMany("StudentResponses")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("Question");
-
-                    b.Navigation("SelectedChoice");
-
-                    b.Navigation("StudentAttempt");
                 });
 
             modelBuilder.Entity("ITI_GProject.Data.Models.ApplicationUser", b =>

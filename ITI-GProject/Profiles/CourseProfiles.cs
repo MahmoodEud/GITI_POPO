@@ -9,9 +9,9 @@
             //CreateMap<Lesson, LessonDTO>().ReverseMap();
             CreateMap<LessonUpdateDto, Lesson>().ReverseMap();
             CreateMap<Lesson, LessonDTO>()
-                .ForMember(d => d.VideoUrl, o => o.MapFrom(s => s.VideoUrl))
-                .ForMember(d => d.PreviewVideoUrl, o => o.MapFrom(s => s.PreviewVideoUrl))
-                .ForMember(d => d.PdfUrl, o => o.MapFrom(s => s.PdfUrl));
+                .ForMember(d => d.videoUrl, o => o.MapFrom(s => s.VideoUrl))
+                .ForMember(d => d.previewVideoUrl, o => o.MapFrom(s => s.PreviewVideoUrl))
+                .ForMember(d => d.pdfUrl, o => o.MapFrom(s => s.PdfUrl));
 
             CreateMap<Course, CourseDTO>();
             CreateMap<CourseUpdateDTO, Course>()

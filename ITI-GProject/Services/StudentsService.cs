@@ -7,7 +7,7 @@ namespace ITI_GProject.Services
 
 
         public async Task<PagedResult<StudentDTO>> GetAllStudentAsync
-            (StudentYear? year, string? roleFilter, int pageNumber = 1, int pageSize = 50)
+            (StudentYear? year, string? roleFilter, int pageNumber = 1, int pageSize = 10)
         {
             var query = userManager.Users
                 .Include(u => u.StudentProfile)
@@ -62,7 +62,10 @@ namespace ITI_GProject.Services
             {
                 Items = studentDtos,
                 TotalCount = totalCount,
-                TotalPages = totalPages
+                TotalPages = totalPages,
+                Page = pageNumber,
+                PageSize = pageSize
+
             };
         }
 

@@ -2,16 +2,16 @@
 {
     public class LessonDTO
     {
-        public int Id { get; set; }
+        public int id { get; set; }
 
         [Required, MaxLength(150)]
-        public string Title { get; set; } = null!;
+        public string title { get; set; } = null!;
 
         [DataType(DataType.Url)]
         [Required, Display(Name = "Video")]
-        public string VideoUrl { get; set; } = null!;
-        public string? PreviewVideoUrl { get; set; }
-        public string PdfUrl { get; set; } = null!;
+        public string videoUrl { get; set; } = null!;
+        public string? previewVideoUrl { get; set; }
+        public string pdfUrl { get; set; } = null!;
 
         [Required] public int courseId { get; set; }
 

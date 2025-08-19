@@ -9,15 +9,15 @@ namespace ITI_GProject.Controllers
     public class AssessmentController : ControllerBase
     {
 
-
         private readonly IAssessments _assessmentService;
-
+        
         public AssessmentController(IAssessments assessmentsService)
         {
             _assessmentService = assessmentsService;
         }
 
         
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AssDTO>>> GetAllAssessments()
         {
@@ -26,7 +26,7 @@ namespace ITI_GProject.Controllers
         }
 
         [HttpGet("{id}")]
-      
+        [Authorize]
         public async Task<ActionResult<AssDTO>>AssessmnetById(int id)
         {
             var assessment = await _assessmentService.GetAssessmetById(id);
@@ -38,8 +38,8 @@ namespace ITI_GProject.Controllers
             return Ok(assessment);
         }
 
-        [HttpGet("AssessmentByLesson/ {LessonId}")]
-       
+        [HttpGet("AssessmentByLesson/{LessonId}")]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<AssDTO>>> GetAssessmentsByLesson(int lessonId)
         {
             var assessments = await _assessmentService.GetAssessmentByLessonId(lessonId);
@@ -53,13 +53,12 @@ namespace ITI_GProject.Controllers
          }
 
         [HttpPost]
-        public async Task<ActionResult<AssDTO>> CreateAssessment(
-          [FromBody] CreateNewDTO createAssDTO,
-          [FromQuery] List<QuesDTO> questions = null)
+        [Authorize(Roles = "Admin,Assistant")]
+        public async Task<ActionResult<AssDTO>> CreateAssessment([FromBody] CreateNewDTO dto)
         {
             try
             {
-                var assessment = await _assessmentService.CreateNewAssessment(createAssDTO, questions);
+                var assessment = await _assessmentService.CreateNewAssessment(dto);
                 return CreatedAtAction(nameof(AssessmnetById), new { id = assessment.Id }, assessment);
             }
             catch (Exception ex)
@@ -67,9 +66,19 @@ namespace ITI_GProject.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("lesson/{lessonId}")]
+        [Authorize]
+        public async Task<ActionResult<AssDTO>> GetByLesson(int lessonId)
+        {
+            var list = await _assessmentService.GetAssessmentByLessonId(lessonId);
+            var first = list.FirstOrDefault();
+            if (first == null) return NotFound($"No assessments found for lesson ID : {lessonId}");
+            return Ok(first);
+        }
 
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Assistant")]
         public async Task<IActionResult> DeleteAssessment(int id)
         {
             var result = await _assessmentService.DeleteAssessment(id);

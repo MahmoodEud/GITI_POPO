@@ -21,6 +21,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAssessments, AssessmentService>();
 builder.Services.AddScoped<IProgressService, ProgressService>();
+builder.Services.AddScoped<IStudentAttemptsService, StudentAttemptsService>();
+
 
 builder.Services.AddAutoMapper(typeof(QuestionProfile));
 builder.Services.AddScoped<IQuestion, QuestionService>();
@@ -29,6 +31,7 @@ builder.Services.AddScoped<ICourseService, CourseServices>();
 builder.Services.AddScoped<IAttachment, Attachments>();
 builder.Services.AddScoped<IStudentsService, StudentsService>();
 builder.Services.AddScoped<IStudentCoursesService, StudentCoursesService>();
+builder.Services.AddScoped<IStudentResponseService, StudentResponseService>();
 
 builder.Services.AddDbContext<AppGConetxt>(options => options.UseSqlServer(builder
     .Configuration.GetConnectionString("GConnection")));

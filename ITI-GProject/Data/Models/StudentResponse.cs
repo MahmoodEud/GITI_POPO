@@ -1,26 +1,22 @@
-﻿public class StudentResponse
+﻿namespace ITI_GProject.Data.Models
 {
-    [Key]
-    public int Id { get; set; }
+    [Index(nameof(AttemptId))]
+    [Index(nameof(QuestionId))]
+    [Index(nameof(ChoiceId))]
+    [Index(nameof(AttemptId), nameof(QuestionId), IsUnique = true)] 
+    public class StudentResponse
+    {
+        [Key] public int Id { get; set; }
 
-    [Required(ErrorMessage = "رقم المحاولة مطلوب")]
-    public int AttemptId { get; set; }
+        [Required] public int AttemptId { get; set; }
+        [ForeignKey(nameof(AttemptId))] public StudentAttempts Attempt { get; set; } = null!;
 
-    [ForeignKey(nameof(AttemptId))]
-    public virtual StudentAttempts StudentAttempt { get; set; } = null!;
+        [Required] public int QuestionId { get; set; }
+        [ForeignKey(nameof(QuestionId))] public Question Question { get; set; } = null!;
 
-    [Required(ErrorMessage = "رقم السؤال مطلوب")]
-    public int QuestionId { get; set; }
+        [Required] public int ChoiceId { get; set; }
+        [ForeignKey(nameof(ChoiceId))] public Choice Choice { get; set; } = null!;
 
-    [ForeignKey(nameof(QuestionId))]
-    public virtual Question Question { get; set; } = null!;
-
-    [Required(ErrorMessage = "الاختيار مطلوب")]
-    public int ChoiceId { get; set; }
-
-    [ForeignKey(nameof(ChoiceId))]
-    public virtual Choice SelectedChoice { get; set; } = null!;
-
-    [Required]
-    public bool IsCorrect { get; set; }
+        [Required] public bool IsCorrect { get; set; }
+    }
 }

@@ -45,23 +45,27 @@ namespace ITI_GProject.Services
 
         }
 
-        public async Task<QuesDTO> GetQuestionById(int id)
+        public async Task<QuesDTO?> GetQuestionById(int id)
         {
             var question = await _db.Questions
-                .Include(c => c.choices)
-                .FirstOrDefaultAsync(c => c.Id == id);
-            return _mapper.Map<QuesDTO>(question);
+                .AsNoTracking()
+                .Include(q => q.choices)
+                .FirstOrDefaultAsync(q => q.Id == id);
 
+            if (question == null) return null;
+
+            return _mapper.Map<QuesDTO>(question);
         }
+
 
         public async Task<IEnumerable<QuesDTO>> GetQuestionByQuizId(int quizId)
         {
             var questions = await _db.Questions
-                .Include(c => c.choices)
-                .Include(q => q.QuizId == quizId)
+                .Where(q => q.QuizId == quizId)   
+                .Include(q => q.choices)          
                 .ToListAsync();
-            return _mapper.Map<IEnumerable<QuesDTO>>(questions);
 
+            return _mapper.Map<IEnumerable<QuesDTO>>(questions);
         }
 
         public async Task<QuesDTO> UpdateQuestion(int id, QuesDTO dto)

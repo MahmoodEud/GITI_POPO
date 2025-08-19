@@ -1,6 +1,4 @@
-﻿using ITI_GProject.Data.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Numerics;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace ITI_GProject.Controllers;
 
@@ -166,51 +164,49 @@ public class AccountController(AppGConetxt context,
         return Ok(roles);
     }
 
-    [HttpPost("AssignRole")]
-    public async Task<IActionResult> AssignRole(string userName, string role)
+   [HttpPost("AssignRole")]
+    public async Task<IActionResult> AssignRole([FromBody] AssignRoleDto dto)
     {
-        var user = await userManager.FindByNameAsync(userName);
+        var user = await userManager.FindByNameAsync(dto.UserName);
         if (user == null)
-            return NotFound($"المستخدم '{userName}' غير موجود");
+            return NotFound($"المستخدم '{dto.UserName}' غير موجود");
 
-        if (!await roleManager.RoleExistsAsync(role))
-            return BadRequest($"الدور '{role}' غير موجود");
+        if (!await roleManager.RoleExistsAsync(dto.Role))
+            return BadRequest($"الدور '{dto.Role}' غير موجود");
 
-        if (await userManager.IsInRoleAsync(user, role))
-            return BadRequest($"المستخدم '{userName}' يمتلك الدور '{role}' بالفعل");
+        if (await userManager.IsInRoleAsync(user, dto.Role))
+            return Ok(new {message= $"المستخدم '{dto.UserName}' يمتلك الدور '{dto.Role}' بالفعل" });
 
         var currentRoles = await userManager.GetRolesAsync(user);
         await userManager.RemoveFromRolesAsync(user, currentRoles);
 
-        var result = await userManager.AddToRoleAsync(user, role);
+        var result = await userManager.AddToRoleAsync(user, dto.Role);
         if (!result.Succeeded)
             return BadRequest($"فشل في تعيين الدور: {string.Join(", ", result.Errors.Select(e => e.Description))}");
 
-        return Ok($"تم تعيين الدور '{role}' للمستخدم '{userName}' بنجاح");
+        return Ok(new { message = $"تم تعيين الدور '{dto.Role}' للمستخدم '{dto.UserName}' بنجاح" });
     }
 
     // POST: api/account/student-change-password
-    [Authorize(Roles = "Student")]
+    [Authorize]
     [HttpPost("student-change-password")]
     public async Task<IActionResult> StudentChangePassword([FromBody]UserChangePasswordDto request)
     {
-        // get current logged-in user
         var user = await userManager.GetUserAsync(User);
         if (user == null)
         {
-            return BadRequest("User not found.");
+            return BadRequest(new { message = "User not found." });
         }
 
         var result = await userManager.ChangePasswordAsync(user, request.CurrentPassword, request.NewPassword);
         if (result.Succeeded)
         {
-            return Ok("Password changed successfully");
+            return Ok(new { message = "Password changed successfully" });
         }
 
-        return BadRequest(result.Errors);
+        return BadRequest(new { message = "Failed to change password.", errors = result.Errors });
     }
 
-    // POST: api/account/admin-change-password/{id}
     [Authorize(Roles = "Admin")]
     [HttpPost("admin-change-password/{id}")]
     public async Task<IActionResult> AdminChangePassword(string id, [FromBody]AdminChangePasswordDto request)
@@ -218,21 +214,21 @@ public class AccountController(AppGConetxt context,
         var user = await context.Users.FindAsync(id);
         if (user == null)
         {
-            return BadRequest("User not found.");
+            return BadRequest(new { message = "User not found." });
         }
 
         var removeResult = await userManager.RemovePasswordAsync(user);
         if (!removeResult.Succeeded)
         {
-            return BadRequest(removeResult.Errors);
+            return BadRequest(new { message = "Failed to remove password.", errors = removeResult.Errors });
         }
 
         var addResult = await userManager.AddPasswordAsync(user, request.NewPassword);
         if (addResult.Succeeded)
         {
-            return Ok("Password reset successfully");
+            return Ok(new { message = "Password changed successfully" });
         }
 
-        return BadRequest(addResult.Errors);
+        return BadRequest(new { message = "Failed to change password.", errors = addResult.Errors });
     }
 }

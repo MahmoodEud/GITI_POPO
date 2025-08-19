@@ -186,11 +186,11 @@ namespace ITI_GProject.Services
                 .OrderBy(l => l.Id) 
                 .Select(l => new LessonDTO
                 {
-                    Id = l.Id,
-                    Title = l.Title,
-                    VideoUrl = l.VideoUrl,
-                    PreviewVideoUrl = l.PreviewVideoUrl,
-                    PdfUrl = l.PdfUrl
+                    id = l.Id,
+                    title = l.Title,
+                    videoUrl = l.VideoUrl,
+                    previewVideoUrl = l.PreviewVideoUrl,
+                    pdfUrl = l.PdfUrl
                 })
                 .ToListAsync();
 

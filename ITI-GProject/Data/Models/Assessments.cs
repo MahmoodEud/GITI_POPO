@@ -7,18 +7,19 @@
 
         [Range(1, 100, ErrorMessage = "Max attempts must be 1-100")]
         [Display(Name = "Maximum Attempts")]
-        public int Max_Attempts { get; set; }
+        public int? Max_Attempts { get; set; }
         [Required]
 
         public int Passing_Score { get; set; }
-        [Range(1, 100, ErrorMessage = "Duration must be 1-100 minutes")]
+
         [Display(Name = "Duration (minutes)")]
-        public int Time_Limit { get; set; }
+        public int? Time_Limit { get; set; }
         [Required]
         public DateTime Starting_At { get; set; }
+        //public bool IsExam { get; set; }
+
 
         [ForeignKey("Lesson")]
-
         public int? LessonId { get; set; }
         public Lesson? Lesson { get; set; }
 
