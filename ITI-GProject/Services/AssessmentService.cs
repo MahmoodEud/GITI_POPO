@@ -18,10 +18,10 @@ namespace ITI_GProject.Services
             return new AssDTO
             {
                 Id = assessment.Id,
-                Max_Attempts = assessment.Max_Attempts,
-                Passing_Score = assessment.Passing_Score,
-                Time_Limit = assessment.Time_Limit,
-                Starting_At = assessment.Starting_At,
+                MaxAttempts = assessment.Max_Attempts,
+                PassingScore = assessment.Passing_Score,
+                TimeLimit = assessment.Time_Limit,
+                StartingAt = assessment.Starting_At,
                 LessonId = assessment.LessonId,
                 LessonName = lessonName,
                 QuestionCount = questionCount,
@@ -66,10 +66,10 @@ namespace ITI_GProject.Services
             {
                 var assessment = new Assessments
                 {
-                    Max_Attempts = dto.Max_Attempts,
-                    Passing_Score = dto.Passing_Score,
-                    Time_Limit = dto.Time_Limit,
-                    Starting_At = dto.Starting_At,
+                    Max_Attempts = dto.MaxAttempts,
+                    Passing_Score = dto.PassingScore,
+                    Time_Limit = dto.TimeLimit,
+                    Starting_At = dto.StartingAt,
                     LessonId = dto.LessonId
                 };
 
@@ -119,21 +119,23 @@ namespace ITI_GProject.Services
 
             return assess != null ? MapToDto(assess) : null;
         }
-
-        public async Task<bool> DeleteAssessment(int id)
+   
+        public async Task<DeleteAssessmentResult> DeleteAssessment(int id)
         {
+            var hasAttempts = await _db.StudentAttempts.AnyAsync(a => a.AssessmentId == id);
+            if (hasAttempts) return DeleteAssessmentResult.HasAttempts;
+
             var assessment = await _db.Assessments
                 .Include(a => a.Questions)
                     .ThenInclude(q => q.choices)
                 .FirstOrDefaultAsync(a => a.Id == id);
 
-            if (assessment == null) return false;
+            if (assessment == null) return DeleteAssessmentResult.NotFound;
 
             _db.Assessments.Remove(assessment);
             await _db.SaveChangesAsync();
-            return true;
+            return DeleteAssessmentResult.Deleted;
         }
-
         public async Task<IEnumerable<AssDTO>> GetAssessmentByLessonId(int lessId)
         {
             var list = await _db.Assessments
@@ -146,10 +148,10 @@ namespace ITI_GProject.Services
             return list.Select(a => new AssDTO
             {
                 Id = a.Id,
-                Max_Attempts = a.Max_Attempts,
-                Passing_Score = a.Passing_Score,
-                Time_Limit = a.Time_Limit,
-                Starting_At = a.Starting_At,
+                MaxAttempts = a.Max_Attempts,
+                PassingScore = a.Passing_Score,
+                TimeLimit = a.Time_Limit,
+                StartingAt = a.Starting_At,
                 LessonId = a.LessonId,
                 LessonName = a.Lesson?.Title ?? string.Empty,
                 QuestionCount = a.Questions?.Count ?? 0,
@@ -169,10 +171,120 @@ namespace ITI_GProject.Services
                 }).ToList() ?? new List<QuesDTO>()
             });
         }
-
-        public Task<AssDTO?> UpdateAssessment(int id, UpdateAssDTO updateAssDTO)
+        public async Task<IEnumerable<StudentAttemptDTO>> GetAttemptsByAssessmentAsync(int assessmentId)
         {
-            throw new NotImplementedException();
+            return await _db.StudentAttempts
+                .Where(a => a.AssessmentId == assessmentId)
+                .Include(a => a.Student)
+                .Select(a => new StudentAttemptDTO
+                {
+                    Id = a.Id,
+                    StudentName = a.Student.User.Name,   
+                    StudentId = a.StudentId,
+                    AssessmentId = a.AssessmentId,
+                    AttemptNumber = a.AttemptsNumber,
+                    StartedAt = a.StartedAt,
+                    SubmittedAt = a.SubmittedAt,
+                    Score = a.Score,
+                    IsGraded = a.Score.HasValue
+                })
+                .ToListAsync();
         }
+
+        public async Task<AssDTO?> UpdateAssessment(int id, UpdateAssDTO dto)
+        {
+            var assessment = await _db.Assessments
+                .Include(a => a.Questions)
+                    .ThenInclude(q => q.choices)
+                .FirstOrDefaultAsync(a => a.Id == id);
+
+            if (assessment == null)
+                return null;
+
+            assessment.LessonId = dto.LessonId;
+            assessment.Max_Attempts = dto.MaxAttempts;
+            assessment.Passing_Score = dto.PassingScore;
+            assessment.Time_Limit = dto.TimeLimit;
+            assessment.Starting_At = dto.StartingAt;
+
+            var dtoQIds = dto.Questions.Where(q => q.Id > 0).Select(q => q.Id).ToHashSet();
+
+            var questionsToRemove = assessment.Questions
+                .Where(q => !dtoQIds.Contains(q.Id))
+                .ToList();
+            _db.Questions.RemoveRange(questionsToRemove);
+
+            foreach (var qdto in dto.Questions)
+            {
+                var qentity = (qdto.Id > 0)
+                    ? assessment.Questions.FirstOrDefault(q => q.Id == qdto.Id)
+                    : null;
+
+                if (qentity == null)
+                {
+                    qentity = new Question
+                    {
+                        Header = qdto.Header ?? string.Empty,
+                        Body = qdto.Body ?? string.Empty
+                    };
+                    assessment.Questions.Add(qentity);
+                }
+                else
+                {
+                    qentity.Header = qdto.Header ?? string.Empty;
+                    qentity.Body = qdto.Body ?? string.Empty;
+                }
+
+                var dtoCIds = qdto.Choices.Where(c => c.Id > 0).Select(c => c.Id).ToHashSet();
+
+                var choicesToRemove = qentity.choices
+                    .Where(c => !dtoCIds.Contains(c.Id))
+                    .ToList();
+                _db.Choices.RemoveRange(choicesToRemove);
+
+                foreach (var cdto in qdto.Choices)
+                {
+                    var centity = (cdto.Id > 0)
+                        ? qentity.choices.FirstOrDefault(c => c.Id == cdto.Id)
+                        : null;
+
+                    if (centity == null)
+                    {
+                        centity = new Choice
+                        {
+                            ChoiceText = cdto.ChoiceText ?? string.Empty,
+                            IsCorrect = cdto.IsCorrect
+                        };
+                        qentity.choices.Add(centity);
+                    }
+                    else
+                    {
+                        centity.ChoiceText = cdto.ChoiceText ?? string.Empty;
+                        centity.IsCorrect = cdto.IsCorrect;
+                    }
+                }
+            }
+
+            await _db.SaveChangesAsync();
+            return await GetAssessmetById(assessment.Id);
+        }
+
+        public async Task<bool> DeleteAttemptsByAssessmentId(int assessmentId)
+        {
+            var attempts = await _db.StudentAttempts
+                .Where(sa => sa.AssessmentId == assessmentId)
+                .ToListAsync();
+
+            if (!attempts.Any())
+                return false;
+
+            _db.StudentAttempts.RemoveRange(attempts);
+            await _db.SaveChangesAsync();
+            return true;
+        }
+
+
+
+
     }
 }

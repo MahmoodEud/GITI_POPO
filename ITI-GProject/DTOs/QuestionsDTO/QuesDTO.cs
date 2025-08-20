@@ -12,9 +12,8 @@ namespace ITI_GProject.DTOs.QuestionsDTO
         [DataType(DataType.MultilineText)]
         public string Body { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "*")]
         [DataType(DataType.MultilineText)]
-        public string correctAnswer { get; set; } = string.Empty;
+        public string? correctAnswer { get; set; } = "false";
 
         [ForeignKey("quiz")]
         public int QuizId { get; set; }

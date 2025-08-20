@@ -49,7 +49,21 @@ namespace ITI_GProject.Controllers
             if (sid is null && !User.IsInRole("Admin")) return Unauthorized();
             var studentId = sid ?? int.Parse(Request.Query["studentId"]);
             var p = await _svc.GetCourseAsync(studentId, courseId);
-            return p is null ? NotFound() : Ok(p);
+
+            if (p is null)
+            {
+                return Ok(new CourseProgressDTO
+                {
+                    CourseId = courseId,
+                    TotalLessons = 0,
+                    CompletedLessons = 0,
+                    Percent = 0,
+                    Lessons = new List<LessonProgressDTO>()
+                });
+            }
+
+            return Ok(p);
         }
+
     }
 }

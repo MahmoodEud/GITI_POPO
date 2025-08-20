@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IAssessments, AssessmentService>();
 builder.Services.AddScoped<IProgressService, ProgressService>();
 builder.Services.AddScoped<IStudentAttemptsService, StudentAttemptsService>();
-
+builder.Services.AddScoped<IReportsService, ReportsService>();
 
 builder.Services.AddAutoMapper(typeof(QuestionProfile));
 builder.Services.AddScoped<IQuestion, QuestionService>();

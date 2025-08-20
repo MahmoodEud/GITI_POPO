@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Authorization;
+using static ITI_GProject.Services.AssessmentService;
 
 namespace ITI_GProject.Controllers
 {
@@ -79,18 +80,39 @@ namespace ITI_GProject.Controllers
 
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin,Assistant")]
-        public async Task<IActionResult> DeleteAssessment(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var result = await _assessmentService.DeleteAssessment(id);
 
-            if (!result)
+            return result switch
             {
-                return NotFound();
-            }
-
-            return Ok("Deleted Successfully ");
+                DeleteAssessmentResult.Deleted => NoContent(),
+                DeleteAssessmentResult.NotFound => NotFound(),
+                DeleteAssessmentResult.HasAttempts => Conflict(new { message = "لا يمكن حذف التقييم لوجود محاولات طلاب مرتبطة به." }),
+                _ => StatusCode(500)
+            };
         }
 
+
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Admin,Assistant")]
+        public async Task<IActionResult> UpdateAssessment(int id, [FromBody] UpdateAssDTO dto)
+        {
+            var updated = await _assessmentService.UpdateAssessment(id, dto);
+            if (updated == null)
+                return NotFound(new { message = $"Assessment with id {id} not found." });
+
+            return Ok(updated);
+        }
+
+        [HttpDelete("{id}/attempts")]
+        public async Task<IActionResult> DeleteAttempts(int id)
+        {
+            var deleted = await _assessmentService.DeleteAttemptsByAssessmentId(id);
+            if (!deleted)
+                return BadRequest("لا توجد محاولات مرتبطة بهذا التقييم.");
+            return NoContent();
+        }
 
 
 

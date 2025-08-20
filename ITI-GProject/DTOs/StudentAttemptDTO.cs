@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public int StudentId { get; set; }
+        public string StudentName { get; set; } = default!;
         public int AssessmentId { get; set; }
         public int AttemptNumber { get; set; }
         public DateTime StartedAt { get; set; }

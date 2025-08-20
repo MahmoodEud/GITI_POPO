@@ -99,7 +99,18 @@ namespace ITI_GProject.Controllers
             var result = await _service.SubmitAttemptAsync(attemptId, responses ?? new());
             if (result is null) return NotFound(new { message = "Attempt not found." });
             return Ok(result);
+       }
+        [HttpGet("assessment/{assessmentId}/attempts")]
+        [Authorize(Roles = "Admin,Assistant")]
+        public async Task<IActionResult> GetAttemptsForAssessment(int assessmentId)
+        {
+            var attempts = await _service.GetAttemptsByAssessmentAsync(assessmentId);
+            if (attempts == null || !attempts.Any())
+                return NotFound(new { message = "No attempts found for this assessment." });
+
+            return Ok(attempts);
         }
+
 
         [HttpGet("mine")]
         public async Task<IActionResult> GetMyAttempts()
