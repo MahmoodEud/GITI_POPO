@@ -1,7 +1,14 @@
 ﻿namespace ITI_GProject.Services
 {
+
     public class StudentAttemptsService : IStudentAttemptsService
     {
+        private static DateTime ToCairoTime(DateTime utcDateTime)
+        {
+            var tz = TimeZoneInfo.FindSystemTimeZoneById("Egypt Standard Time");
+
+            return TimeZoneInfo.ConvertTimeFromUtc(DateTime.SpecifyKind(utcDateTime, DateTimeKind.Utc), tz);
+        }
         private readonly AppGConetxt _ctx;
 
         public StudentAttemptsService(AppGConetxt ctx)
@@ -71,14 +78,21 @@
                 StudentId = a.StudentId,
                 AssessmentId = a.AssessmentId,
                 AttemptNumber = a.AttemptsNumber,
-                StartedAt = a.StartedAt,
-                SubmittedAt = a.SubmittedAt,
+                StartedAt = ToCairoTime(a.StartedAt),
+                SubmittedAt = a.SubmittedAt.HasValue
+                ? ToCairoTime(a.SubmittedAt.Value)
+                : (DateTime?)null,
+
                 TimeLimitMinutes = timeLimit,         
                 Score = a.Score,
-                IsGraded = a.Score != null
+                IsGraded = a.Score != null,
+                LessonId = a.Assessment?.LessonId,
+                RemainingAttempts = a.Assessment?.Max_Attempts.HasValue == true
+            ? a.Assessment.Max_Attempts.Value -
+              a.Assessment.StudentAttempts.Count(sa => sa.StudentId == a.StudentId)
+            : null
             };
         }
-
 
 
         public async Task<StudentAttemptDTO?> SubmitAttemptAsync(int attemptId, List<StudentResponseDTO> responses)
@@ -90,7 +104,6 @@
 
             if (attempt == null) return null;
 
-            // Upsert responses
             foreach (var r in responses)
             {
                 var choice = await _ctx.Choices
@@ -120,12 +133,10 @@
                 }
             }
 
-            // خلّي الإجابات تتخزن فعلياً
             await _ctx.SaveChangesAsync();
 
             attempt.SubmittedAt = DateTime.UtcNow;
 
-            // احسب السكور في أي محاولة
             var totalQuestions = attempt.Assessment.Questions.Count;
             if (totalQuestions > 0)
             {
@@ -143,6 +154,10 @@
 
         public async Task<IEnumerable<StudentAttemptDTO>> GetAttemptsByStudentAsync(int studentId)
         {
+
+
+
+
             return await _ctx.StudentAttempts
                 .Where(a => a.StudentId == studentId)
                 .Include(a => a.Assessment)
@@ -153,11 +168,20 @@
                     StudentId = a.StudentId,
                     AssessmentId = a.AssessmentId,
                     AttemptNumber = a.AttemptsNumber,
-                    StartedAt = a.StartedAt,
-                    SubmittedAt = a.SubmittedAt,
+                    StartedAt = ToCairoTime(a.StartedAt),
+                    SubmittedAt = a.SubmittedAt.HasValue
+                    ? ToCairoTime(a.SubmittedAt.Value)
+                    : (DateTime?)null,
                     TimeLimitMinutes = a.Assessment.Time_Limit,
                     Score = a.Score,
-                    IsGraded = a.Score != null
+                    LessonId = a.Assessment.LessonId,
+                    IsGraded = a.Score != null,
+
+
+                    RemainingAttempts = a.Assessment.Max_Attempts.HasValue
+                ? a.Assessment.Max_Attempts.Value -
+                  a.Assessment.StudentAttempts.Count(sa => sa.StudentId == a.StudentId)
+                : null
                 })
                 .ToListAsync();
         }
@@ -174,13 +198,24 @@
                     StudentId = a.StudentId,
                     AssessmentId = a.AssessmentId,
                     AttemptNumber = a.AttemptsNumber,
-                    StartedAt = a.StartedAt,
-                    SubmittedAt = a.SubmittedAt,
+                    StartedAt = ToCairoTime(a.StartedAt),
+                    SubmittedAt = a.SubmittedAt.HasValue
+                    ? ToCairoTime(a.SubmittedAt.Value)
+                    : (DateTime?)null,
                     TimeLimitMinutes = a.Assessment.Time_Limit,
                     Score = a.Score,
-                    IsGraded = a.Score != null
+                    IsGraded = a.Score != null,
+
+
+                    RemainingAttempts = a.Assessment.Max_Attempts.HasValue
+                ? a.Assessment.Max_Attempts.Value -
+                  a.Assessment.StudentAttempts.Count(sa => sa.StudentId == a.StudentId)
+                : null
                 })
                 .ToListAsync();
         }
     }
-}
+    
+
+
+    }

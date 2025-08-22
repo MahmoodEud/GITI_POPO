@@ -21,6 +21,8 @@ namespace ITI_GProject.Data.GContext
         public DbSet<StudentResponse> StudentResponses { get; set; }
         public DbSet<Choice> Choices { get; set; }
         public DbSet<StudentLessonProgress> StudentLessonProgresses { get; set; }
+        public DbSet<Invoice> Invoices { get; set; } = null!;
+        public DbSet<Notification> Notifications { get; set; } = null!;
         // UpdatedAt 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
@@ -130,6 +132,45 @@ namespace ITI_GProject.Data.GContext
                 .HasForeignKey<Student>(s => s.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Invoices
+            modelBuilder.Entity<Invoice>(b =>
+            {
+                b.HasOne(i => i.Student)
+                 .WithMany()
+                 .HasForeignKey(i => i.StudentId)
+                 .OnDelete(DeleteBehavior.Restrict);
+
+                b.HasOne(i => i.Course)
+                 .WithMany()
+                 .HasForeignKey(i => i.CourseId)
+                 .OnDelete(DeleteBehavior.SetNull);
+
+                b.Property(i => i.Amount).HasColumnType("decimal(18,2)");
+                b.Property(i => i.Currency).HasMaxLength(8).HasDefaultValue("EGP");
+
+                b.Property(i => i.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
+                b.Property(i => i.UpdatedAt).HasDefaultValueSql("GETUTCDATE()");
+
+                b.HasIndex(i => new { i.StudentId, i.Status, i.CreatedAt });
+
+                b.HasIndex(i => i.InvoiceNo)
+                 .IsUnique()
+                 .HasFilter("[InvoiceNo] IS NOT NULL");
+            });
+
+            modelBuilder.Entity<Notification>(b =>
+            {
+                b.HasOne(n => n.Student)
+                 .WithMany()
+                 .HasForeignKey(n => n.StudentId)
+                 .OnDelete(DeleteBehavior.Cascade);
+
+                b.Property(n => n.CreatedAt).HasDefaultValueSql("GETUTCDATE()");
+                b.HasIndex(n => new { n.StudentId, n.IsRead, n.CreatedAt });
+
+                b.Property(n => n.ActionUrl).HasMaxLength(1024);
+
+            });
 
         }
     }

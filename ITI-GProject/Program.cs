@@ -23,6 +23,10 @@ builder.Services.AddScoped<IAssessments, AssessmentService>();
 builder.Services.AddScoped<IProgressService, ProgressService>();
 builder.Services.AddScoped<IStudentAttemptsService, StudentAttemptsService>();
 builder.Services.AddScoped<IReportsService, ReportsService>();
+builder.Services.AddScoped<IStudentReportService, StudentReportService>();
+builder.Services.AddSingleton<ILocalClock, CairoClock>();
+builder.Services.AddScoped<IInvoicesService, InvoicesService>();
+builder.Services.AddScoped<INotificationsService, NotificationsService>();
 
 builder.Services.AddAutoMapper(typeof(QuestionProfile));
 builder.Services.AddScoped<IQuestion, QuestionService>();

@@ -59,9 +59,10 @@ namespace ITI_GProject.Services
         public async Task<IEnumerable<QuestionDifficultyDto>> GetQuestionDifficulty(int assessmentId)
         {
             var questions = await _db.Questions
-                .Where(q => q.Id == assessmentId)
+                .Where(q => q.QuizId == assessmentId)   
                 .Select(q => new { q.Id, q.Header })
                 .ToListAsync();
+
 
             var answersAgg = await _db.StudentResponses
                 .Where(r => r.Attempt.AssessmentId == assessmentId)
